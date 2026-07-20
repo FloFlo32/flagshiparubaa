@@ -6,11 +6,9 @@ import { BookButton } from "@/components/ui/book-button";
 const bullets = ["Sailing & Snorkeling Bliss", "Splash & Swing Thrills", "Sunset & Dinner Cruises"];
 
 const slides = [
-  { src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp", alt: "" },
-  { src: "/ingested/flagshiparubaa/schooner-sunset-guests.webp", alt: "" },
-  { src: "/ingested/flagshiparubaa/snorkeler-with-mask.webp", alt: "" },
+  { src: "/ingested/flagshiparubaa/aerial-yacht-reef.webp", alt: "" },
   { src: "/ingested/flagshiparubaa/coastline-cliff-sunset.webp", alt: "" },
-  { src: "/ingested/flagshiparubaa/tall-ship-horizon.webp", alt: "" },
+  { src: "/ingested/flagshiparubaa/guest-beach-dusk.webp", alt: "" },
 ];
 
 export function Hero() {

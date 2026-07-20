@@ -10,8 +10,8 @@ export const tours = [
     description:
       "Start your day with a snorkel cruise through crystal-clear waters and vibrant marine life. Includes gear, drinks, and sunny vibes perfect for early adventurers.",
     image: {
-      src: "/ingested/flagshiparubaa/coastline-cliff-sunset.webp",
-      alt: "Flagship Aruba's schooner along the coastline in the early morning light",
+      src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp",
+      alt: "Flagship Aruba's schooner anchored in turquoise water, guests swimming alongside",
     },
     activityId: "01083159-5861-4408-b78d-22c81e19faa4",
   },
@@ -32,8 +32,8 @@ export const tours = [
     description:
       "Unwind as the sun dips below the horizon on this magical evening sail. Enjoy local bites, drinks, and ocean breezes perfect for couples or friends looking to chill.",
     image: {
-      src: "/ingested/flagshiparubaa/schooner-sunset-guests.webp",
-      alt: "Flagship Aruba's schooner sailing into the sunset with guests aboard",
+      src: "/ingested/flagshiparubaa/sunset-bird-silhouette.webp",
+      alt: "A bird silhouetted against an Aruba sunset over the ocean",
     },
     activityId: "8ff35752-c22a-41f6-b142-4679aa1d1fb4",
   },

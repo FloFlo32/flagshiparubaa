@@ -14,8 +14,8 @@ export default function MorningSplashAdventurePage() {
       title="Make Your Morning Magical!"
       heroDescription="Start your day with a snorkel cruise through crystal-clear waters and vibrant marine life. Includes gear, drinks, and sunny vibes perfect for early adventurers."
       heroImage={{
-        src: "/ingested/flagshiparubaa/coastline-cliff-sunset.webp",
-        alt: "Flagship Aruba's schooner along the coastline in the morning light",
+        src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp",
+        alt: "Flagship Aruba's schooner anchored in turquoise water, guests swimming alongside",
       }}
       activityId="01083159-5861-4408-b78d-22c81e19faa4"
       whatToExpect={[
@@ -26,10 +26,6 @@ export default function MorningSplashAdventurePage() {
       ]}
       sectionTitle="Make Your Morning Magical!"
       sectionBody="Slip into the water while it's calm and clear, before the afternoon crowds arrive. Our crew guides you to the best snorkel stops of the day, then keeps drinks and snacks coming while you dry off on deck."
-      sectionImage={{
-        src: "/ingested/flagshiparubaa/malmok-beach.webp",
-        alt: "Malmok Beach, one of the snorkel stops on the Morning Splash Adventure",
-      }}
       goodToKnow={[
         "Departs from the pier in front of MooMba Beach Bar, Palm Beach",
         "Snorkel gear, drinks, and snacks are included",

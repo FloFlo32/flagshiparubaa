@@ -21,8 +21,8 @@ export default function AddressPage() {
           title="Find us at MooMba Pier"
           description="All cruises depart from MooMba Pier, perfectly located on Palm Beach in the heart of Aruba's resort area."
           image={{
-            src: "/ingested/flagshiparubaa/coastline-rocks-turquoise.webp",
-            alt: "The Palm Beach coastline near MooMba Pier, Aruba",
+            src: "/ingested/flagshiparubaa/departure-map-address.webp",
+            alt: "Satellite map of the MooMba Pier departure area on Palm Beach, Aruba",
           }}
         />
 

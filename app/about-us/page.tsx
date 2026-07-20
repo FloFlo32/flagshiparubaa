@@ -33,10 +33,10 @@ export default function AboutUsPage() {
             <Reveal>
               <div className="overflow-hidden rounded-3xl border border-border shadow-lg shadow-primary/5">
                 <Image
-                  src="/ingested/flagshiparubaa/guest-beach-dusk.webp"
-                  alt="A guest at dusk on an Aruba beach, looking out toward the water"
-                  width={800}
-                  height={1000}
+                  src="/ingested/flagshiparubaa/schooner-sunset-guests.webp"
+                  alt="Flagship Aruba's schooner sailing into the sunset with guests aboard"
+                  width={900}
+                  height={1125}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   quality={78}
                   className="aspect-[4/5] w-full object-cover"
@@ -58,37 +58,6 @@ export default function AboutUsPage() {
                   dream has come to life: a beautifully crafted wooden pirate ship now sails Aruba&apos;s turquoise
                   waters, driven by a love for adventure, the ocean, and sharing magical moments.
                 </p>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        <section className="bg-secondary/40 py-16 sm:py-20">
-          <div className="container-px mx-auto grid max-w-6xl gap-4 sm:grid-cols-2">
-            <Reveal>
-              <div className="overflow-hidden rounded-3xl border border-border">
-                <Image
-                  src="/ingested/flagshiparubaa/coastline-cliff-sunset.webp"
-                  alt="The Aruba coastline at sunset with Flagship Aruba's schooner offshore"
-                  width={900}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  quality={78}
-                  className="aspect-[3/2] w-full object-cover"
-                />
-              </div>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <div className="overflow-hidden rounded-3xl border border-border">
-                <Image
-                  src="/ingested/flagshiparubaa/coastline-resort-view.webp"
-                  alt="Aruba's turquoise coastline near Palm Beach"
-                  width={900}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  quality={78}
-                  className="aspect-[3/2] w-full object-cover"
-                />
               </div>
             </Reveal>
           </div>

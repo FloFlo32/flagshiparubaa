@@ -31,10 +31,6 @@ export default function FaqPage() {
           eyebrow="FAQ"
           title="Frequently Asked Questions"
           description="Everything you need to know before you set sail with Flagship Aruba. Can't find your answer? Ask our assistant in the corner, or reach out directly."
-          image={{
-            src: "/ingested/flagshiparubaa/snorkeler-with-mask.webp",
-            alt: "A guest snorkeling in Aruba's clear waters",
-          }}
           cta={{ label: "Contact us", href: "/contact" }}
         />
 

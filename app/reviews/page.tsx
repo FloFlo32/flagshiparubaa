@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { Quote } from "lucide-react";
 import { Navbar } from "@/components/sections/navbar";
 import { PageHero } from "@/components/sections/page-hero";
-import { Testimonial } from "@/components/sections/testimonial";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
 import { Reveal } from "@/components/magic/reveal";
@@ -26,13 +26,23 @@ export default function ReviewsPage() {
           eyebrow="Reviews"
           title="What guests are saying"
           description="Real feedback from travelers who sailed with Flagship Aruba, plus where to find more reviews."
-          image={{
-            src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp",
-            alt: "Flagship Aruba's schooner anchored in turquoise water",
-          }}
         />
 
-        <Testimonial />
+        <section className="container-px mx-auto max-w-3xl py-16 sm:py-20">
+          <Reveal>
+            <div className="rounded-3xl border border-border bg-card p-8 text-center sm:p-10">
+              <Quote className="mx-auto size-8 text-primary" />
+              <p className="mt-4 text-pretty text-lg leading-relaxed text-foreground">
+                &ldquo;Flagship Aruba delivers a memorable mix of adventure, snorkeling, and laid-back fun aboard
+                charming pirate-style schooners. Guests consistently praise the friendly, witty crew, open bar, and
+                great music, which contribute to a festive atmosphere especially during the rope-swing finale. The
+                snorkeling spots, including the WWII shipwreck SS Antilla, Boca Catalina, and Malmok Reef, are
+                beautiful and well-chosen.&rdquo;
+              </p>
+              <p className="mt-4 font-display text-sm font-semibold">Lisa de Boer</p>
+            </div>
+          </Reveal>
+        </section>
 
         <section className="container-px mx-auto max-w-3xl py-16 text-center sm:py-20">
           <Reveal>

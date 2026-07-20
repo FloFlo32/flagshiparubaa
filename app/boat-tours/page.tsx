@@ -20,10 +20,6 @@ export default function BoatToursPage() {
           eyebrow="Boat Tours"
           title="Set Sail with Flagship Aruba!"
           description="A two-hour journey across the crystal-clear Caribbean waters aboard our pirate-style schooner, with a tasty sharing platter and a self-service open bar featuring cocktails, local beers, fine wines, soft drinks, and juices. Starting around $69 per guest."
-          image={{
-            src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp",
-            alt: "Flagship Aruba's schooner anchored in turquoise water",
-          }}
         />
         <ToursGrid />
         <CTA />

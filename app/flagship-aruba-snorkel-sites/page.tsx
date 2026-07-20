@@ -18,8 +18,8 @@ const sites = [
     description:
       "A calm, shallow reef close to shore with some of the clearest water on the island, great visibility for every skill level.",
     image: {
-      src: "/ingested/flagshiparubaa/coastline-rocks-turquoise.webp",
-      alt: "The rocky, turquoise coastline at Boca Catalina Reefs, Aruba",
+      src: "/ingested/flagshiparubaa/snorkeler-boca-catalina.webp",
+      alt: "A guest snorkeling at Boca Catalina Reefs, Aruba",
     },
   },
   {

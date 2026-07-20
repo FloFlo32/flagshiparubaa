@@ -9,8 +9,8 @@ export function Testimonial() {
         <div className="grid items-stretch overflow-hidden rounded-3xl border border-border bg-card shadow-sm md:grid-cols-2">
           <div className="relative min-h-[16rem]">
             <Image
-              src="/ingested/flagshiparubaa/schooner-sunset-guests.webp"
-              alt="Flagship Aruba's pirate-style schooner sailing at sunset with guests aboard"
+              src="/ingested/flagshiparubaa/schooner-pink-sunset.webp"
+              alt="Flagship Aruba's pirate-style schooner sailing under a pink sunset sky"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               quality={78}

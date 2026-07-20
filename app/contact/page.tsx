@@ -22,10 +22,6 @@ export default function ContactPage() {
           eyebrow="Contact"
           title="How can we help you set sail on your perfect pirate tour?"
           description="Let Flagship Aruba be your trusted crew for unforgettable adventures!"
-          image={{
-            src: "/ingested/flagshiparubaa/coastline-resort-view.webp",
-            alt: "The Aruba coastline near Palm Beach",
-          }}
         />
 
         <section className="container-px mx-auto max-w-6xl py-20 sm:py-24">

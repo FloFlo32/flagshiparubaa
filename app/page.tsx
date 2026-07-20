@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/sections/navbar";
 import { Hero } from "@/components/sections/hero";
-import { ToursGrid } from "@/components/sections/tours-grid";
+import { ToursTeaser } from "@/components/sections/tours-teaser";
 import { Testimonial } from "@/components/sections/testimonial";
 import { Features } from "@/components/sections/features";
 import { BlogTeasers } from "@/components/sections/blog-teasers";
@@ -13,7 +13,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <ToursGrid />
+        <ToursTeaser />
         <Testimonial />
         <Features />
         <BlogTeasers />
