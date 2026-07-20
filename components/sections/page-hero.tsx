@@ -2,12 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/magic/reveal";
-import { BOOKING_URL } from "@/components/sections/navbar";
+import { BookButton } from "@/components/ui/book-button";
 
 /**
  * PageHero — the shared hero for every inner page. Split layout: heading + copy
  * on a solid surface, real photo in a rounded card beside it. Never text over
  * the image (see CLAUDE.md §0), so it stays readable on every page.
+ *
+ * cta: pass `href` for an internal link (e.g. "Contact us" -> /contact), or
+ * `activityId` for a booking action (defaults to the general Book Now when
+ * cta is omitted entirely, with an empty activity id).
  */
 export function PageHero({
   eyebrow,
@@ -20,11 +24,10 @@ export function PageHero({
   title: string;
   description: string;
   image: { src: string; alt: string };
-  cta?: { label: string; href: string; external?: boolean };
+  cta?: { label: string; href: string } | { label?: string; activityId?: string };
 }) {
-  const ctaHref = cta?.href ?? BOOKING_URL;
   const ctaLabel = cta?.label ?? "Book Now";
-  const ctaExternal = cta?.external ?? !cta;
+  const ctaHref = cta && "href" in cta ? cta.href : undefined;
 
   return (
     <section className="border-b border-border bg-secondary/40">
@@ -34,22 +37,20 @@ export function PageHero({
           <h1 className="mt-4 text-balance text-4xl font-bold leading-[1.08] sm:text-5xl">{title}</h1>
           <p className="mt-5 max-w-lg text-pretty text-lg text-muted-foreground">{description}</p>
           <div className="mt-8">
-            {ctaExternal ? (
-              <a
-                href={ctaHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
-              >
-                {ctaLabel} <ArrowRight className="size-4" />
-              </a>
-            ) : (
+            {ctaHref ? (
               <Link
                 href={ctaHref}
                 className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
               >
                 {ctaLabel} <ArrowRight className="size-4" />
               </Link>
+            ) : (
+              <BookButton
+                activityId={cta && "activityId" in cta ? cta.activityId : ""}
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
+              >
+                {ctaLabel} <ArrowRight className="size-4" />
+              </BookButton>
             )}
           </div>
         </Reveal>

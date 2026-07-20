@@ -1,7 +1,7 @@
 import { ArrowRight, Compass } from "lucide-react";
 import { Reveal } from "@/components/magic/reveal";
 import { HeroSlideshow } from "@/components/magic/hero-slideshow";
-import { BOOKING_URL } from "@/components/sections/navbar";
+import { BookButton } from "@/components/ui/book-button";
 
 const bullets = ["Sailing & Snorkeling Bliss", "Splash & Swing Thrills", "Sunset & Dinner Cruises"];
 
@@ -51,14 +51,9 @@ export function Hero() {
 
         <Reveal delay={0.22}>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-card px-7 py-3.5 text-base font-semibold text-primary shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-[0.98]"
-            >
+            <BookButton className="inline-flex items-center gap-2 rounded-full bg-card px-7 py-3.5 text-base font-semibold text-primary shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5 hover:shadow-xl active:scale-[0.98]">
               Book Now <ArrowRight className="size-4" />
-            </a>
+            </BookButton>
             <a
               href="/boat-tours"
               className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/40 bg-white/10 px-7 py-3.5 text-base font-semibold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/20 active:scale-[0.98]"

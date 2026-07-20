@@ -17,6 +17,7 @@ export default function SunsetStarsCruisePage() {
         src: "/ingested/flagshiparubaa/schooner-sunset-guests.webp",
         alt: "Flagship Aruba's schooner sailing into the sunset with guests aboard",
       }}
+      activityId="8ff35752-c22a-41f6-b142-4679aa1d1fb4"
       whatToExpect={[
         "An evening sail timed to Aruba's famous sunset",
         "Local bites and drinks served on deck",

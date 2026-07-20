@@ -25,7 +25,7 @@ export default function AboutUsPage() {
             src: "/ingested/flagshiparubaa/tall-ship-horizon.webp",
             alt: "A tall ship sailing on the open water off Aruba",
           }}
-          cta={{ label: "Meet us on the water", href: "/boat-tours", external: false }}
+          cta={{ label: "Meet us on the water", href: "/boat-tours" }}
         />
 
         <section className="container-px mx-auto max-w-6xl py-20 sm:py-24">

@@ -5,9 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-export const BOOKING_URL =
-  "https://fareharbor.com/embeds/book/flagshiparuba/?full-items=yes&flow=1576973";
+import { BookButton } from "@/components/ui/book-button";
 
 const tours = [
   { href: "/flagshiparuba-morning-snorkel-cruise", label: "Morning Splash Adventure" },
@@ -94,14 +92,9 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden cursor-pointer items-center rounded-full bg-card px-5 py-2.5 text-sm font-semibold text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] sm:inline-flex"
-          >
+          <BookButton className="hidden items-center rounded-full bg-card px-5 py-2.5 text-sm font-semibold text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] sm:inline-flex">
             Book Now
-          </a>
+          </BookButton>
           <button
             type="button"
             className="grid size-10 cursor-pointer place-items-center rounded-md text-primary-foreground lg:hidden"
@@ -143,15 +136,12 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <BookButton
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex cursor-pointer items-center justify-center rounded-full bg-card px-5 py-2.5 text-sm font-semibold text-primary"
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-card px-5 py-2.5 text-sm font-semibold text-primary"
             >
               Book Now
-            </a>
+            </BookButton>
           </div>
         </div>
       )}

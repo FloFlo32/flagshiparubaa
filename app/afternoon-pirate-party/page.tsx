@@ -17,6 +17,7 @@ export default function AfternoonPiratePartyPage() {
         src: "/ingested/flagshiparubaa/afternoon-pirate-party.webp",
         alt: "Guests enjoying the Afternoon Pirate Party cruise aboard Flagship Aruba's schooner",
       }}
+      activityId="47611e71-4496-4915-99ef-816cb4ec6fe2"
       whatToExpect={[
         "Music and a festive atmosphere from the moment you board",
         "The rope-swing finale, a guest favorite",

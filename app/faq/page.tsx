@@ -35,7 +35,7 @@ export default function FaqPage() {
             src: "/ingested/flagshiparubaa/snorkeler-with-mask.webp",
             alt: "A guest snorkeling in Aruba's clear waters",
           }}
-          cta={{ label: "Contact us", href: "/contact", external: false }}
+          cta={{ label: "Contact us", href: "/contact" }}
         />
 
         <section className="container-px mx-auto max-w-3xl py-20 sm:py-24">

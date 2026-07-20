@@ -11,6 +11,7 @@ export function TourDetail({
   title,
   heroDescription,
   heroImage,
+  activityId,
   whatToExpect,
   sectionTitle,
   sectionBody,
@@ -21,6 +22,7 @@ export function TourDetail({
   title: string;
   heroDescription: string;
   heroImage: { src: string; alt: string };
+  activityId: string;
   whatToExpect: string[];
   sectionTitle: string;
   sectionBody: string;
@@ -31,7 +33,13 @@ export function TourDetail({
     <>
       <Navbar />
       <main className="flex-1">
-        <PageHero eyebrow={eyebrow} title={title} description={heroDescription} image={heroImage} />
+        <PageHero
+          eyebrow={eyebrow}
+          title={title}
+          description={heroDescription}
+          image={heroImage}
+          cta={{ label: "Book Now", activityId }}
+        />
 
         <section className="container-px mx-auto max-w-6xl py-20 sm:py-24">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
@@ -84,7 +92,7 @@ export function TourDetail({
           </div>
         </section>
 
-        <CTA />
+        <CTA activityId={activityId} />
       </main>
       <Footer />
     </>

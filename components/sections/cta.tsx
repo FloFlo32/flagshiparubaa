@@ -3,9 +3,9 @@ import { ArrowRight, Mail } from "lucide-react";
 import { brand } from "@/brand.config";
 import { Reveal } from "@/components/magic/reveal";
 import { GridPattern } from "@/components/magic/grid-pattern";
-import { BOOKING_URL } from "@/components/sections/navbar";
+import { BookButton } from "@/components/ui/book-button";
 
-export function CTA() {
+export function CTA({ activityId = "" }: { activityId?: string } = {}) {
   return (
     <section className="container-px mx-auto max-w-6xl py-20 sm:py-24">
       <Reveal>
@@ -18,14 +18,12 @@ export function CTA() {
             Let {brand.name} be your trusted crew for unforgettable adventures.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-sm shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]"
+            <BookButton
+              activityId={activityId}
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-sm shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]"
             >
               Book Now <ArrowRight className="size-4" />
-            </a>
+            </BookButton>
             <Link
               href="/contact"
               className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border bg-background px-7 py-3.5 text-base font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
