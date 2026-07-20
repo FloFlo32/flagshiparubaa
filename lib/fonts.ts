@@ -7,14 +7,14 @@
  * brand.config.ts → run `npm run brand`.  (Or just edit here directly.)
  */
 // brand:fonts:start
-import { Space_Grotesk, Geist, JetBrains_Mono } from "next/font/google";
+import { Playfair_Display, Mulish, JetBrains_Mono } from "next/font/google";
 
-export const fontDisplay = Space_Grotesk({
+export const fontDisplay = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
-export const fontSans = Geist({
+export const fontSans = Mulish({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",

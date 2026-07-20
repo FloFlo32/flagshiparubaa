@@ -1,34 +1,37 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { brand } from "@/brand.config";
-import { Button } from "@/components/ui/button";
-import { GitHubIcon } from "@/components/icons";
-import { GridPattern } from "@/components/magic/grid-pattern";
 import { Reveal } from "@/components/magic/reveal";
+import { GridPattern } from "@/components/magic/grid-pattern";
+import { BOOKING_URL } from "@/components/sections/navbar";
 
 export function CTA() {
   return (
-    <section id="cta" className="container-px mx-auto max-w-6xl py-24">
+    <section className="container-px mx-auto max-w-6xl py-20 sm:py-24">
       <Reveal>
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-card px-6 py-20 text-center sm:px-12">
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-card px-6 py-16 text-center sm:px-12 sm:py-20">
           <GridPattern />
           <h2 className="mx-auto max-w-2xl text-balance text-4xl font-bold sm:text-5xl">
-            Start your next site on <span className="text-primary">{brand.name}</span>
+            How can we help you set sail on your perfect pirate tour?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-            Clone it, name it, ship it. The last starter you&apos;ll set up by hand.
+            Let {brand.name} be your trusted crew for unforgettable adventures.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild size="lg">
-              <Link href={`https://github.com/${brand.social.github}`}>
-                Get the starter <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href={`https://github.com/${brand.social.github}`}>
-                <GitHubIcon className="size-4" /> Star on GitHub
-              </Link>
-            </Button>
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-sm shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]"
+            >
+              Book Now <ArrowRight className="size-4" />
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border bg-background px-7 py-3.5 text-base font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
+            >
+              <Mail className="size-4" /> Contact us
+            </Link>
           </div>
         </div>
       </Reveal>

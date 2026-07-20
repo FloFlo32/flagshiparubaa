@@ -1,0 +1,294 @@
+{
+  "source": "https://www.flagshiparuba.com",
+  "ingestedFromHost": "flagshiparuba.com",
+  "pagesCrawled": 10,
+  "name": "Flagship Aruba",
+  "tagline": "Home - Flagship Aruba",
+  "description": "Sail, Splash & Sunset Magic Set Sail with Flagship Aruba! Sailing & Snorkeling Bliss Splash & Swing Thrills Sunset & Dinner Cruises Book your cruise Morning Splash Adventure Start your day with a snorkel cruise through crystal-clear waters and vibrant marine life. Includes gear, drinks, and sunny vibes perfect for early adventurers. Book your morning […]",
+  "domain": "flagshiparuba.com",
+  "brandColor": {
+    "hex": "#ff6900",
+    "src": "css-frequency",
+    "oklchHue": 44
+  },
+  "theme": {
+    "hue": 44
+  },
+  "fonts": [
+    "Roboto",
+    "Roboto Slab",
+    "Mulish",
+    "Philosopher",
+    "Playfair"
+  ],
+  "logo": "assets/logo.webp",
+  "logoNote": null,
+  "favicon": "https://www.flagshiparuba.com/undefined",
+  "images": [
+    "/ingested/flagshiparubaa/img-001.webp",
+    "/ingested/flagshiparubaa/img-002.webp",
+    "/ingested/flagshiparubaa/img-004.svg",
+    "/ingested/flagshiparubaa/img-006.webp",
+    "/ingested/flagshiparubaa/img-007.webp",
+    "/ingested/flagshiparubaa/img-008.webp",
+    "/ingested/flagshiparubaa/img-009.webp",
+    "/ingested/flagshiparubaa/img-010.webp",
+    "/ingested/flagshiparubaa/img-011.webp"
+  ],
+  "imageCount": 9,
+  "social": {
+    "email": "info@flagshiparuba.com"
+  },
+  "whatsapp": null,
+  "phone": null,
+  "location": {
+    "address": "MooMba Beach Bar",
+    "mapUrl": "https://www.google.com/maps/place/12%C2%B034'40.5%22N+70%C2%B002'41.7%22W/@12.577921,-70.0455497,242m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d12.577921!4d-70.044906?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D",
+    "lat": "12.577921",
+    "lng": "-70.0455497",
+    "mapQuery": "MooMba Beach Bar"
+  },
+  "sectionOrder": [
+    "Sail, Splash & Sunset Magic",
+    "Lisa de Boer",
+    "Book Our Top Rated Private Aruba Boat Tour",
+    "Sunny Updates",
+    "How can we help you set sail on your perfect pirate tour?",
+    "+297 566 XXXX",
+    "info@flagshiparuba.com"
+  ],
+  "navItems": [
+    {
+      "text": "Home Boat Tours Morning Splash Adventure Afternoon Pirate Party Sunset & Stars Cruise About Us Our snorkel sites FAQ Contact Home Boat Tours Morning Splash Adventure Afternoon Pirate Party Sunset & Stars Cruise About Us Our snorkel sites FAQ Contact Book Now",
+      "url": "https://www.flagshiparuba.com/undefined",
+      "path": "/undefined"
+    },
+    {
+      "text": "Boat Tours",
+      "url": "https://www.flagshiparuba.com/boat-tours/",
+      "path": "/boat-tours"
+    },
+    {
+      "text": "Morning Splash Adventure",
+      "url": "https://www.flagshiparuba.com/flagshiparuba-morning-snorkel-cruise/",
+      "path": "/flagshiparuba-morning-snorkel-cruise"
+    },
+    {
+      "text": "Afternoon Pirate Party",
+      "url": "https://www.flagshiparuba.com/afternoon-pirate-party/",
+      "path": "/afternoon-pirate-party"
+    },
+    {
+      "text": "Sunset & Stars Cruise",
+      "url": "https://www.flagshiparuba.com/sunset-stars-cruise/",
+      "path": "/sunset-stars-cruise"
+    },
+    {
+      "text": "About Us",
+      "url": "https://www.flagshiparuba.com/about-us/",
+      "path": "/about-us"
+    },
+    {
+      "text": "Our snorkel sites",
+      "url": "https://www.flagshiparuba.com/flagship-aruba-snorkel-sites/",
+      "path": "/flagship-aruba-snorkel-sites"
+    },
+    {
+      "text": "FAQ",
+      "url": "https://www.flagshiparuba.com/faq/",
+      "path": "/faq"
+    },
+    {
+      "text": "Contact",
+      "url": "https://www.flagshiparuba.com/contact/",
+      "path": "/contact"
+    },
+    {
+      "text": "Reviews",
+      "url": "https://www.flagshiparuba.com/reviews/",
+      "path": "/reviews"
+    },
+    {
+      "text": "Blog",
+      "url": "https://www.flagshiparuba.com/blog/",
+      "path": "/blog"
+    },
+    {
+      "text": "Address",
+      "url": "https://www.flagshiparuba.com/address/",
+      "path": "/address"
+    },
+    {
+      "text": "Terms & Conditions",
+      "url": "https://www.flagshiparuba.com/terms-conditions/",
+      "path": "/terms-conditions"
+    },
+    {
+      "text": "Privacy",
+      "url": "https://www.flagshiparuba.com/privacy/",
+      "path": "/privacy"
+    }
+  ],
+  "footerItems": [
+    {
+      "text": "Boat Tours",
+      "url": "https://www.flagshiparuba.com/boat-tours/",
+      "path": "/boat-tours"
+    },
+    {
+      "text": "Morning Splash Adventure",
+      "url": "https://www.flagshiparuba.com/flagshiparuba-morning-snorkel-cruise/",
+      "path": "/flagshiparuba-morning-snorkel-cruise"
+    },
+    {
+      "text": "Afternoon Pirate Party",
+      "url": "https://www.flagshiparuba.com/afternoon-pirate-party/",
+      "path": "/afternoon-pirate-party"
+    },
+    {
+      "text": "Sunset & Stars Cruise",
+      "url": "https://www.flagshiparuba.com/sunset-stars-cruise/",
+      "path": "/sunset-stars-cruise"
+    },
+    {
+      "text": "About Us",
+      "url": "https://www.flagshiparuba.com/about-us/",
+      "path": "/about-us"
+    },
+    {
+      "text": "Our snorkel sites",
+      "url": "https://www.flagshiparuba.com/flagship-aruba-snorkel-sites/",
+      "path": "/flagship-aruba-snorkel-sites"
+    },
+    {
+      "text": "FAQ",
+      "url": "https://www.flagshiparuba.com/faq/",
+      "path": "/faq"
+    },
+    {
+      "text": "Contact",
+      "url": "https://www.flagshiparuba.com/contact/",
+      "path": "/contact"
+    },
+    {
+      "text": "Reviews",
+      "url": "https://www.flagshiparuba.com/reviews/",
+      "path": "/reviews"
+    },
+    {
+      "text": "Blog",
+      "url": "https://www.flagshiparuba.com/blog/",
+      "path": "/blog"
+    },
+    {
+      "text": "Address",
+      "url": "https://www.flagshiparuba.com/address/",
+      "path": "/address"
+    },
+    {
+      "text": "Terms & Conditions",
+      "url": "https://www.flagshiparuba.com/terms-conditions/",
+      "path": "/terms-conditions"
+    },
+    {
+      "text": "Privacy",
+      "url": "https://www.flagshiparuba.com/privacy/",
+      "path": "/privacy"
+    }
+  ],
+  "innerPages": [
+    {
+      "path": "/boat-tours/",
+      "title": "Boat Tours - Flagship Aruba",
+      "sections": [
+        "Boat Tours",
+        "Which boat will you be on?",
+        "+297 566 XXXX",
+        "info@flagshiparuba.com"
+      ]
+    },
+    {
+      "path": "/flagshiparuba-morning-snorkel-cruise/",
+      "title": "Morning Splash Adventure - Flagship Aruba",
+      "sections": [
+        "Morning Splash Adventure",
+        "What to Expect",
+        "Make Your Morning Magical!",
+        "Good to know:",
+        "Book Our Top Rated Private Aruba Boat Tour",
+        "+297 566 XXXX",
+        "info@flagshiparuba.com"
+      ]
+    },
+    {
+      "path": "/afternoon-pirate-party/",
+      "title": "Afternoon Pirate Party - Flagship Aruba",
+      "sections": [
+        "Afternoon Pirate Party",
+        "What to Expect",
+        "A Midday Escape Full of Fun",
+        "Good to know:",
+        "Book Our Top Rated Private Aruba Boat Tour",
+        "+297 566 XXXX",
+        "info@flagshiparuba.com"
+      ]
+    },
+    {
+      "path": "/sunset-stars-cruise/",
+      "title": "Sunset & Stars Cruise - Flagship Aruba",
+      "sections": [
+        "Sunset & Stars Cruise",
+        "What to Expect",
+        "A Magical Evening at Sea",
+        "Good to know:",
+        "Book Our Top Rated Private Aruba Boat Tour",
+        "+297 566 XXXX",
+        "info@flagshiparuba.com"
+      ]
+    },
+    {
+      "path": "/about-us/",
+      "title": "About Us - Flagship Aruba",
+      "sections": [
+        "About us",
+        "Our Story: Three Friends, One Dream",
+        "From Childhood Imagination to a Real Pirate Ship",
+        "Book Our Top Rated Private Aruba Boat Tour",
+        "+297 566 XXXX",
+        "info@flagshiparuba.com"
+      ]
+    },
+    {
+      "path": "/flagship-aruba-snorkel-sites/",
+      "title": "Our snorkel sites - Flagship Aruba",
+      "sections": [
+        "Our snorkel sites",
+        "Boca Catalina Reefs",
+        "Malmok Beach – One of the Top Aruba Snorkel Sites",
+        "the SS Antilla – Aruba’s Most Famous Snorkel Site",
+        "+297 566 XXXX",
+        "info@flagshiparuba.com"
+      ]
+    },
+    {
+      "path": "/faq/",
+      "title": "FAQ - Flagship Aruba",
+      "sections": [
+        "Frequently Asked Questions",
+        "Add Your Heading Text Here",
+        "+297 566 XXXX",
+        "info@flagshiparuba.com"
+      ]
+    },
+    {
+      "path": "/contact/",
+      "title": "Contact - Flagship Aruba",
+      "sections": [
+        "Contact",
+        "How can we help you set sail on your perfect pirate tour?",
+        "+297 566 XXXX",
+        "info@flagshiparuba.com"
+      ]
+    }
+  ]
+}

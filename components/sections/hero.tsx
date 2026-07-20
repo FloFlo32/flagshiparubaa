@@ -1,84 +1,82 @@
-import Link from "next/link";
-import { ArrowRight, Palette, Zap, Rocket } from "lucide-react";
-import { brand } from "@/brand.config";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { GridPattern } from "@/components/magic/grid-pattern";
-import { BorderBeam } from "@/components/magic/border-beam";
-import { AuroraBackground } from "@/components/magic/aurora-background";
+import Image from "next/image";
+import { ArrowRight, Compass } from "lucide-react";
 import { Reveal } from "@/components/magic/reveal";
+import { Badge } from "@/components/ui/badge";
+import { BOOKING_URL } from "@/components/sections/navbar";
 
-const previews = [
-  { icon: Palette, title: "Design system", body: "OKLCH tokens, one hue, full dark mode." },
-  { icon: Zap, title: "Motion built-in", body: "Reveals and beams, reduced-motion safe." },
-  { icon: Rocket, title: "One-command deploy", body: "GitHub + Vercel + domain from a script." },
-];
+const bullets = ["Sailing & Snorkeling Bliss", "Splash & Swing Thrills", "Sunset & Dinner Cruises"];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      <AuroraBackground />
-      <GridPattern />
-
-      <div className="container-px mx-auto max-w-6xl pt-20 pb-16 sm:pt-28 sm:pb-24 text-center">
+    <section className="relative overflow-hidden bg-secondary/40">
+      <div className="container-px mx-auto max-w-6xl pt-16 pb-14 text-center sm:pt-24 sm:pb-20">
         <Reveal>
           <Badge variant="accent" className="mx-auto">
-            <span className="font-mono">{brand.social.github}</span>
+            <Compass className="size-3.5" /> MooMba Beach Bar, Palm Beach
           </Badge>
         </Reveal>
 
         <Reveal delay={0.06}>
-          <h1 className="mx-auto mt-6 max-w-4xl text-balance text-5xl font-bold leading-[1.05] sm:text-6xl md:text-7xl">
-            Ship a website that looks{" "}
-            <span className="text-gradient">designed</span>, not generated.
+          <h1 className="mx-auto mt-6 max-w-3xl text-balance text-5xl font-bold leading-[1.05] sm:text-6xl md:text-7xl">
+            Sail, Splash & Sunset Magic
           </h1>
         </Reveal>
 
         <Reveal delay={0.12}>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground">
-            {brand.description}
+          <p className="mx-auto mt-5 max-w-xl text-lg text-muted-foreground">
+            Set Sail with Flagship Aruba!
           </p>
         </Reveal>
 
-        <Reveal delay={0.18}>
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild size="lg">
-              <Link href="#cta">
-                Start building <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline">
-              <Link href="#features">See what's inside</Link>
-            </Button>
+        <Reveal delay={0.16}>
+          <div className="mx-auto mt-6 flex flex-wrap items-center justify-center gap-2.5">
+            {bullets.map((b) => (
+              <span
+                key={b}
+                className="rounded-full border border-border bg-card px-4 py-1.5 text-sm font-medium text-foreground"
+              >
+                {b}
+              </span>
+            ))}
           </div>
         </Reveal>
 
-        {/* Product preview — flat surface, one traveling beam as the single featured motion */}
-        <Reveal delay={0.26}>
-          <div className="relative mx-auto mt-16 max-w-4xl">
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card text-left shadow-xl shadow-primary/5">
-              <BorderBeam />
-              <div className="flex items-center gap-1.5 border-b border-border px-4 py-3">
-                <span className="size-3 rounded-full bg-muted-foreground/30" />
-                <span className="size-3 rounded-full bg-muted-foreground/30" />
-                <span className="size-3 rounded-full bg-muted-foreground/30" />
-                <span className="ml-3 font-mono text-xs text-muted-foreground">
-                  {brand.domain}
-                </span>
-              </div>
-              <div className="grid gap-px bg-border sm:grid-cols-3">
-                {previews.map((p) => (
-                  <div key={p.title} className="bg-card p-5">
-                    <p.icon className="size-5 text-primary" />
-                    <p className="mt-3 font-medium">{p.title}</p>
-                    <p className="mt-1 text-sm text-muted-foreground">{p.body}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+        <Reveal delay={0.22}>
+          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground shadow-sm shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]"
+            >
+              Book Now <ArrowRight className="size-4" />
+            </a>
+            <a
+              href="/boat-tours"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border bg-card px-7 py-3.5 text-base font-semibold text-foreground transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
+            >
+              See our tours
+            </a>
           </div>
         </Reveal>
       </div>
+
+      <Reveal delay={0.28}>
+        <div className="container-px mx-auto max-w-6xl pb-16 sm:pb-24">
+          <div className="overflow-hidden rounded-3xl border border-border shadow-2xl shadow-primary/10">
+            <Image
+              src="/ingested/flagshiparubaa/boat-aerial-turquoise.webp"
+              alt="Flagship Aruba's schooner anchored in turquoise water off Aruba, guests swimming alongside"
+              width={1600}
+              height={800}
+              priority
+              sizes="100vw"
+              quality={80}
+              className="aspect-[16/8] w-full object-cover"
+            />
+          </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

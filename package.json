@@ -1,11 +1,11 @@
 {
-  "name": "aurora",
+  "name": "flagship-aruba",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS=--max-old-space-size=4096 next dev --webpack",
+    "dev": "node --max-old-space-size=4096 node_modules/next/dist/bin/next dev --webpack",
     "dev:turbo": "next dev",
-    "build": "NODE_OPTIONS=--max-old-space-size=4096 next build --webpack",
+    "build": "node --max-old-space-size=4096 node_modules/next/dist/bin/next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "brand": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/apply-brand.mjs",
