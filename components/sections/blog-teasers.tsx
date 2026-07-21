@@ -4,28 +4,34 @@ import { AutoSlider } from "@/components/magic/auto-slider";
 
 const posts = [
   {
-    title: "Golden Hour Photography at Flamingo Beach",
+    title: "What time of day offers the best lighting for photos at Flamingo Beach?",
     body: "Golden hour lighting transforms Flamingo Beach photography with warm, vibrant colors and perfect reflections during optimal timing windows.",
+    href: "https://www.flagshiparuba.com/blog/uncategorized/what-time-of-day-offers-the-best-lighting-for-photos-at-flamingo-beach/",
   },
   {
-    title: "When Flamingos Visit Renaissance Island",
+    title: "Are the flamingos present on the beach all day?",
     body: "Discover when flamingos arrive and leave Renaissance Island daily for perfect timing on your Aruba vacation.",
+    href: "https://www.flagshiparuba.com/blog/uncategorized/are-the-flamingos-present-on-the-beach-all-day/",
   },
   {
-    title: "Why Flamingos Live on Renaissance Island",
+    title: "Why do flamingos live on a beach in Aruba?",
     body: "Discover why flamingos live on Aruba's Renaissance Island as resort attractions, not natural inhabitants.",
+    href: "https://www.flagshiparuba.com/blog/uncategorized/why-do-flamingos-live-on-a-beach-in-aruba/",
   },
   {
-    title: "Beach Wedding Requirements & Costs",
+    title: "Can you get married on a beach in Aruba?",
     body: "Discover Aruba beach wedding requirements, costs ($3,000-$15,000), best venues like Eagle Beach, and legal documentation needed for your Caribbean dream ceremony.",
+    href: "https://www.flagshiparuba.com/blog/uncategorized/can-you-get-married-on-a-beach-in-aruba/",
   },
   {
-    title: "Educational Activities for Kids in Aruba",
+    title: "What educational or nature-based activities exist for kids in Aruba?",
     body: "Explore kid-friendly snorkeling, wildlife parks, and interactive museums that make learning an adventure in Aruba's natural paradise.",
+    href: "https://www.flagshiparuba.com/blog/uncategorized/what-educational-or-nature-based-activities-exist-for-kids-in-aruba/",
   },
   {
-    title: "Free Tourist Activities in Aruba",
+    title: "What free things can you do in Aruba as a tourist?",
     body: "Explore Aruba's free beaches, natural landmarks, cultural sites, and outdoor adventures without spending money.",
+    href: "https://www.flagshiparuba.com/blog/uncategorized/what-free-things-can-you-do-in-aruba-as-a-tourist/",
   },
 ];
 
@@ -51,13 +57,19 @@ export function BlogTeasers() {
 
         <AutoSlider className="mt-10" itemClassName="w-[85%] sm:w-[60%] lg:w-[38%]">
           {posts.map((p) => (
-            <div
-              key={p.title}
-              className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5"
+            <a
+              key={p.href}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-full cursor-pointer flex-col rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5"
             >
               <h3 className="font-semibold">{p.title}</h3>
               <p className="mt-2 flex-1 text-pretty text-sm text-muted-foreground">{p.body}</p>
-            </div>
+              <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary">
+                Read more <ArrowUpRight className="size-3.5" />
+              </span>
+            </a>
           ))}
         </AutoSlider>
       </div>
