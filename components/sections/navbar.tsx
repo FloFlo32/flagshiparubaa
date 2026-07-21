@@ -24,6 +24,7 @@ export function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [toursOpen, setToursOpen] = React.useState(false);
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const toursRef = React.useRef<HTMLDivElement>(null);
 
   const openTours = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -32,6 +33,24 @@ export function Navbar() {
   const scheduleClose = () => {
     closeTimer.current = setTimeout(() => setToursOpen(false), 250);
   };
+
+  // Click-to-toggle + click-outside/Escape-to-close, so the dropdown works
+  // reliably on touch devices (not just mouse hover).
+  React.useEffect(() => {
+    if (!toursOpen) return;
+    const onClickOutside = (e: MouseEvent) => {
+      if (toursRef.current && !toursRef.current.contains(e.target as Node)) setToursOpen(false);
+    };
+    const onEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setToursOpen(false);
+    };
+    document.addEventListener("click", onClickOutside);
+    document.addEventListener("keydown", onEscape);
+    return () => {
+      document.removeEventListener("click", onClickOutside);
+      document.removeEventListener("keydown", onEscape);
+    };
+  }, [toursOpen]);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-primary shadow-sm">
@@ -48,13 +67,15 @@ export function Navbar() {
             Home
           </Link>
 
-          <div className="relative" onMouseEnter={openTours} onMouseLeave={scheduleClose}>
-            <Link
-              href="/boat-tours"
-              className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/85 transition-colors hover:text-primary-foreground"
+          <div ref={toursRef} className="relative" onMouseEnter={openTours} onMouseLeave={scheduleClose}>
+            <button
+              type="button"
+              onClick={() => setToursOpen((o) => !o)}
+              aria-expanded={toursOpen}
+              className="flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/85 transition-colors hover:text-primary-foreground"
             >
-              Boat Tours <ChevronDown className="size-3.5" />
-            </Link>
+              Boat Tours <ChevronDown className={cn("size-3.5 transition-transform", toursOpen && "rotate-180")} />
+            </button>
             <div
               className={cn(
                 "absolute left-0 top-full w-64 pt-2 -mt-px",
@@ -71,11 +92,20 @@ export function Navbar() {
                 <Link
                   key={t.href}
                   href={t.href}
+                  onClick={() => setToursOpen(false)}
                   className="block cursor-pointer rounded-lg px-3 py-2.5 text-sm text-foreground transition-colors hover:bg-accent"
                 >
                   {t.label}
                 </Link>
               ))}
+              <div className="my-1 border-t border-border" />
+              <Link
+                href="/boat-tours"
+                onClick={() => setToursOpen(false)}
+                className="block cursor-pointer rounded-lg px-3 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-accent"
+              >
+                All Boat Tours
+              </Link>
               </div>
             </div>
           </div>
