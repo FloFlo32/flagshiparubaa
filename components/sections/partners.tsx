@@ -22,7 +22,7 @@ const partners = [
     alt: "GetYourGuide",
     href: "https://www.getyourguide.com",
     w: 46,
-    className: "bg-gradient-to-br from-aurora-2 to-aurora-3",
+    className: "bg-gradient-to-br from-aurora-1 to-sunset-1",
   },
 ];
 

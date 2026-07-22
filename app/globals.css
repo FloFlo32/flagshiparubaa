@@ -15,7 +15,7 @@
 
 :root {
   /* brand:hue:start */
-  --brand-hue: 42; /* set by brand.config.ts */
+  --brand-hue: 222; /* set by brand.config.ts */
 /* brand:hue:end */
 
   /* radius — brand:corners controls this via `npm run brand` */
@@ -30,8 +30,9 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.02 var(--brand-hue));
 
-  /* Brand primary scale — all derived from --brand-hue */
-  --primary: oklch(0.58 0.2 var(--brand-hue));
+  /* Brand primary scale — all derived from --brand-hue. Lightness pulled down
+     for a true deep-navy character (not a bright/light blue). */
+  --primary: oklch(0.4 0.135 var(--brand-hue));
   --primary-foreground: oklch(0.99 0.01 var(--brand-hue));
 
   --secondary: oklch(0.96 0.01 var(--brand-hue));
@@ -55,11 +56,11 @@
   --aurora-2: oklch(0.72 0.18 calc(var(--brand-hue) + 60));
   --aurora-3: oklch(0.75 0.16 calc(var(--brand-hue) - 50));
 
-  /* "Sunset" accent — fixed hues (not brand-derived), a coral-to-rose
-     progression that continues past the gold primary for one bold gradient
-     moment (the CTA), echoing the real sunset photography. */
-  --sunset-1: oklch(0.68 0.2 350);
-  --sunset-2: oklch(0.62 0.2 15);
+  /* "Sea" accent — fixed hues (not brand-derived), a deep-navy-to-turquoise
+     progression used for one bold gradient moment (the CTA), echoing the
+     real ocean photography. */
+  --sunset-1: oklch(0.78 0.14 190);
+  --sunset-2: oklch(0.55 0.14 205);
 }
 
 .dark {
