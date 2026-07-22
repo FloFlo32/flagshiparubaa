@@ -15,7 +15,7 @@
 
 :root {
   /* brand:hue:start */
-  --brand-hue: 216; /* set by brand.config.ts */
+  --brand-hue: 42; /* set by brand.config.ts */
 /* brand:hue:end */
 
   /* radius — brand:corners controls this via `npm run brand` */
@@ -55,10 +55,11 @@
   --aurora-2: oklch(0.72 0.18 calc(var(--brand-hue) + 60));
   --aurora-3: oklch(0.75 0.16 calc(var(--brand-hue) - 50));
 
-  /* Warm "sunset" accent — fixed hue (not brand-derived), used sparingly to
-     punctuate against the ocean-blue core, echoing the real sunset photography. */
-  --sunset-1: oklch(0.78 0.15 70);
-  --sunset-2: oklch(0.68 0.19 40);
+  /* "Sunset" accent — fixed hues (not brand-derived), a coral-to-rose
+     progression that continues past the gold primary for one bold gradient
+     moment (the CTA), echoing the real sunset photography. */
+  --sunset-1: oklch(0.68 0.2 350);
+  --sunset-2: oklch(0.62 0.2 15);
 }
 
 .dark {
