@@ -229,3 +229,14 @@
     var(--color-sunset-1) 100%
   );
 }
+
+/* Hero gradient — the light, tinted wash behind every page hero: navy easing
+   into aurora blue and sea teal, kept pale enough for dark text on top. */
+@utility bg-hero-gradient {
+  background-image: linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--color-primary) 16%, var(--color-background)) 0%,
+    color-mix(in oklch, var(--color-aurora-1) 20%, var(--color-background)) 50%,
+    color-mix(in oklch, var(--color-sunset-1) 22%, var(--color-background)) 100%
+  );
+}

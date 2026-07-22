@@ -59,7 +59,7 @@ export function PageHero({
 }) {
   if (!image) {
     return (
-      <section className="relative overflow-hidden border-b border-border bg-secondary/40">
+      <section className="relative overflow-hidden border-b border-border bg-hero-gradient">
         <AuroraBackground />
         <GridPattern />
         <div className="container-px relative mx-auto max-w-3xl py-20 text-center sm:py-24">
@@ -77,8 +77,9 @@ export function PageHero({
   }
 
   return (
-    <section className="border-b border-border bg-secondary/40">
-      <div className="container-px mx-auto grid max-w-6xl items-center gap-10 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16">
+    <section className="relative overflow-hidden border-b border-border bg-hero-gradient">
+      <GridPattern />
+      <div className="container-px relative mx-auto grid max-w-6xl items-center gap-10 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16">
         <Reveal>
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{eyebrow}</span>
           <h1 className="mt-4 text-balance text-4xl font-bold leading-[1.08] sm:text-5xl">{title}</h1>
