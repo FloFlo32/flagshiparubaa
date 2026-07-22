@@ -14,9 +14,10 @@ export default function SunsetStarsCruisePage() {
       title="A Magical Evening at Sea"
       heroDescription="Unwind as the sun dips below the horizon on this magical evening sail. Enjoy local bites, drinks, and ocean breezes perfect for couples or friends looking to chill."
       heroImage={{
-        src: "/ingested/flagshiparubaa/sunset-bird-silhouette.webp",
-        alt: "A bird silhouetted against an Aruba sunset over the ocean",
+        src: "/ingested/flagshiparubaa/schooner-pink-sunset.webp",
+        alt: "Flagship Aruba's schooner sailing under a pink sunset sky",
       }}
+      heroImagePosition="object-bottom"
       activityId="8ff35752-c22a-41f6-b142-4679aa1d1fb4"
       whatToExpect={[
         "An evening sail timed to Aruba's famous sunset",
@@ -27,8 +28,8 @@ export default function SunsetStarsCruisePage() {
       sectionTitle="A Magical Evening at Sea"
       sectionBody="As the light turns gold and the schooner's sails catch the last of the breeze, this is the cruise for slowing down. Local bites and drinks come around while the sky does the rest of the work."
       sectionImage={{
-        src: "/ingested/flagshiparubaa/schooner-pink-sunset.webp",
-        alt: "Flagship Aruba's schooner sailing under a pink sunset sky",
+        src: "/ingested/flagshiparubaa/sunset-bird-silhouette.webp",
+        alt: "A bird silhouetted against an Aruba sunset over the ocean",
       }}
       goodToKnow={[
         "Departs from the pier in front of MooMba Beach Bar, Palm Beach",

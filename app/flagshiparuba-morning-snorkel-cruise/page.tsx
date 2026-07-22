@@ -14,8 +14,8 @@ export default function MorningSplashAdventurePage() {
       title="Make Your Morning Magical!"
       heroDescription="Start your day with a snorkel cruise through crystal-clear waters and vibrant marine life. Includes gear, drinks, and sunny vibes perfect for early adventurers."
       heroImage={{
-        src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp",
-        alt: "Flagship Aruba's schooner anchored in turquoise water, guests swimming alongside",
+        src: "/ingested/flagshiparubaa/coastline-cliff-sunset.webp",
+        alt: "The Aruba coastline at sunset with Flagship Aruba's schooner offshore",
       }}
       activityId="01083159-5861-4408-b78d-22c81e19faa4"
       whatToExpect={[

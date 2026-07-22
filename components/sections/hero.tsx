@@ -7,7 +7,7 @@ const bullets = ["Sailing & Snorkeling Bliss", "Splash & Swing Thrills", "Sunset
 
 const slides = [
   { src: "/ingested/flagshiparubaa/aerial-yacht-reef.webp", alt: "" },
-  { src: "/ingested/flagshiparubaa/coastline-cliff-sunset.webp", alt: "" },
+  { src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp", alt: "" },
   { src: "/ingested/flagshiparubaa/guest-beach-dusk.webp", alt: "" },
 ];
 

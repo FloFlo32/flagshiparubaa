@@ -14,8 +14,8 @@ export default function AfternoonPiratePartyPage() {
       title="A Midday Escape Full of Fun"
       heroDescription="Join a lively midday tour with music, rope swinging, premium snorkel spots, and an open bar. Great for thrill-seekers who love fun, sun, and a bit of pirate mischief."
       heroImage={{
-        src: "/ingested/flagshiparubaa/afternoon-pirate-party.webp",
-        alt: "Guests enjoying the Afternoon Pirate Party cruise aboard Flagship Aruba's schooner",
+        src: "/ingested/flagshiparubaa/tall-ship-horizon.webp",
+        alt: "A tall ship sailing on the open water off Aruba",
       }}
       activityId="47611e71-4496-4915-99ef-816cb4ec6fe2"
       whatToExpect={[

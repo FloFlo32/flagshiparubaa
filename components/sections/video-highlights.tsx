@@ -93,10 +93,33 @@ export function VideoHighlights() {
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Behind the Scenes</span>
           <h2 className="mt-3 text-balance text-4xl font-bold sm:text-5xl">Watch our story unfold</h2>
           <p className="mt-3 text-muted-foreground">
-            Straight from our crew: rebuilding the ship, and the moments that make it worth it.
+            Straight from our crew: rebuilding the ship, the guests who sail with us, and the moments that make it
+            worth it.
           </p>
         </Reveal>
-        <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+        <Reveal delay={0.06} className="mt-10">
+          <div className="overflow-hidden rounded-3xl border border-border bg-card">
+            <div className="relative aspect-video bg-muted">
+              <video
+                src="/ingested/flagshiparubaa/video/vid-01-featured.mp4"
+                poster="/ingested/flagshiparubaa/video/vid-01-poster.webp"
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                className="size-full object-cover"
+              />
+            </div>
+            <div className="p-5 text-center">
+              <p className="font-semibold">Ready, set, splash!</p>
+              <p className="mt-1 text-sm text-muted-foreground">Guests geared up and ready to jump in.</p>
+            </div>
+          </div>
+        </Reveal>
+
+        <RevealGroup className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {clips.map((clip) => (
             <RevealItem key={clip.src}>
               <VideoCard clip={clip} />

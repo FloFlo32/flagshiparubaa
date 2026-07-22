@@ -11,6 +11,7 @@ export function TourDetail({
   title,
   heroDescription,
   heroImage,
+  heroImagePosition,
   activityId,
   whatToExpect,
   sectionTitle,
@@ -22,6 +23,7 @@ export function TourDetail({
   title: string;
   heroDescription: string;
   heroImage: { src: string; alt: string };
+  heroImagePosition?: string;
   activityId: string;
   whatToExpect: string[];
   sectionTitle: string;
@@ -38,6 +40,7 @@ export function TourDetail({
           title={title}
           description={heroDescription}
           image={heroImage}
+          imagePosition={heroImagePosition}
           cta={{ label: "Book Now", activityId }}
         />
 

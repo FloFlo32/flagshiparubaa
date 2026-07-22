@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { RevealGroup, RevealItem } from "@/components/magic/reveal";
 import { BookButton } from "@/components/ui/book-button";
+import { cn } from "@/lib/utils";
 
 export const tours = [
   {
@@ -10,8 +11,8 @@ export const tours = [
     description:
       "Start your day with a snorkel cruise through crystal-clear waters and vibrant marine life. Includes gear, drinks, and sunny vibes perfect for early adventurers.",
     image: {
-      src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp",
-      alt: "Flagship Aruba's schooner anchored in turquoise water, guests swimming alongside",
+      src: "/ingested/flagshiparubaa/coastline-cliff-sunset.webp",
+      alt: "The Aruba coastline at sunset with Flagship Aruba's schooner offshore",
     },
     activityId: "01083159-5861-4408-b78d-22c81e19faa4",
   },
@@ -21,8 +22,8 @@ export const tours = [
     description:
       "Join a lively midday tour with music, rope swinging, premium snorkel spots, and an open bar. Great for thrill-seekers who love fun, sun, and a bit of pirate mischief.",
     image: {
-      src: "/ingested/flagshiparubaa/afternoon-pirate-party.webp",
-      alt: "Guests enjoying the Afternoon Pirate Party cruise aboard Flagship Aruba",
+      src: "/ingested/flagshiparubaa/tall-ship-horizon.webp",
+      alt: "A tall ship sailing on the open water off Aruba",
     },
     activityId: "47611e71-4496-4915-99ef-816cb4ec6fe2",
   },
@@ -32,9 +33,10 @@ export const tours = [
     description:
       "Unwind as the sun dips below the horizon on this magical evening sail. Enjoy local bites, drinks, and ocean breezes perfect for couples or friends looking to chill.",
     image: {
-      src: "/ingested/flagshiparubaa/sunset-bird-silhouette.webp",
-      alt: "A bird silhouetted against an Aruba sunset over the ocean",
+      src: "/ingested/flagshiparubaa/schooner-pink-sunset.webp",
+      alt: "Flagship Aruba's schooner sailing under a pink sunset sky",
     },
+    imagePosition: "object-bottom",
     activityId: "8ff35752-c22a-41f6-b142-4679aa1d1fb4",
   },
 ] as const;
@@ -61,7 +63,10 @@ export function ToursGrid({ heading = true }: { heading?: boolean }) {
                 alt={t.image.alt}
                 loading="lazy"
                 decoding="async"
-                className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none"
+                className={cn(
+                  "aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none",
+                  "imagePosition" in t ? t.imagePosition : ""
+                )}
               />
             </Link>
             <div className="flex flex-1 flex-col gap-2 p-5">

@@ -2,6 +2,7 @@ import { Navbar } from "@/components/sections/navbar";
 import { Hero } from "@/components/sections/hero";
 import { ToursGrid } from "@/components/sections/tours-grid";
 import { VideoHighlights } from "@/components/sections/video-highlights";
+import { GuestGallery } from "@/components/sections/guest-gallery";
 import { Testimonial } from "@/components/sections/testimonial";
 import { Features } from "@/components/sections/features";
 import { Partners } from "@/components/sections/partners";
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <ToursGrid />
         <VideoHighlights />
+        <GuestGallery />
         <Testimonial />
         <Features />
         <Partners />

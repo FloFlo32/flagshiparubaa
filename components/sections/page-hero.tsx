@@ -5,6 +5,7 @@ import { Reveal } from "@/components/magic/reveal";
 import { BookButton } from "@/components/ui/book-button";
 import { AuroraBackground } from "@/components/magic/aurora-background";
 import { GridPattern } from "@/components/magic/grid-pattern";
+import { cn } from "@/lib/utils";
 
 type Cta = { label: string; href: string } | { label?: string; activityId?: string };
 
@@ -46,12 +47,14 @@ export function PageHero({
   title,
   description,
   image,
+  imagePosition,
   cta,
 }: {
   eyebrow: string;
   title: string;
   description: string;
   image?: { src: string; alt: string };
+  imagePosition?: string;
   cta?: Cta;
 }) {
   if (!image) {
@@ -94,7 +97,7 @@ export function PageHero({
               height={720}
               priority
               unoptimized
-              className="aspect-[4/3] w-full object-cover"
+              className={cn("aspect-[4/3] w-full object-cover", imagePosition)}
             />
           </div>
         </Reveal>

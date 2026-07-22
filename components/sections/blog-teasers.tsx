@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/magic/reveal";
 import { AutoSlider } from "@/components/magic/auto-slider";
+import { cn } from "@/lib/utils";
 
 const posts = [
   {
@@ -8,6 +9,7 @@ const posts = [
     body: "Golden hour lighting transforms Flamingo Beach photography with warm, vibrant colors and perfect reflections during optimal timing windows.",
     href: "https://www.flagshiparuba.com/blog/uncategorized/what-time-of-day-offers-the-best-lighting-for-photos-at-flamingo-beach/",
     image: "/ingested/flagshiparubaa/schooner-pink-sunset.webp",
+    position: "object-bottom",
   },
   {
     title: "Are the flamingos present on the beach all day?",
@@ -77,7 +79,10 @@ export function BlogTeasers() {
                   alt=""
                   loading="lazy"
                   decoding="async"
-                  className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none"
+                  className={cn(
+                    "size-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none",
+                    "position" in p ? p.position : ""
+                  )}
                 />
               </div>
               <div className="flex flex-1 flex-col p-5">
