@@ -6,9 +6,18 @@ import { BookButton } from "@/components/ui/book-button";
 const bullets = ["Sailing & Snorkeling Bliss", "Splash & Swing Thrills", "Sunset & Dinner Cruises"];
 
 const slides = [
-  { src: "/ingested/flagshiparubaa/aerial-yacht-reef.webp", alt: "" },
-  { src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp", alt: "" },
-  { src: "/ingested/flagshiparubaa/guest-beach-dusk.webp", alt: "" },
+  { src: "/ingested/flagshiparubaa/aerial-yacht-reef.webp", alt: "Aerial view of our schooner anchored over a reef" },
+  { src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp", alt: "Our schooner drifting over turquoise Aruba waters" },
+  { src: "/ingested/flagshiparubaa/schooner-turquoise-anchor.webp", alt: "Flagship Aruba schooner anchored in the shallows" },
+  { src: "/ingested/flagshiparubaa/afternoon-pirate-party.webp", alt: "Our pirate-style ship sailing along the Aruba coastline" },
+  { src: "/ingested/flagshiparubaa/malmok-beach.webp", alt: "Sailboats off Malmok Beach, Aruba" },
+  { src: "/ingested/flagshiparubaa/snorkel-sea-turtle.webp", alt: "A sea turtle in the clear waters off Aruba" },
+  { src: "/ingested/flagshiparubaa/ss-antilla-wreck-aerial.webp", alt: "Aerial view of the SS Antilla shipwreck" },
+  { src: "/ingested/flagshiparubaa/guest-beach-dusk.webp", alt: "A guest watching the waves at dusk" },
+  { src: "/ingested/flagshiparubaa/coastline-cliff-sunset.webp", alt: "Our schooner sailing past Aruba's rocky coastline at sunset" },
+  { src: "/ingested/flagshiparubaa/schooner-sunset-guests.webp", alt: "Guests aboard our schooner at sunset" },
+  { src: "/ingested/flagshiparubaa/schooner-pink-sunset.webp", alt: "Our schooner silhouetted against a pink sunset sky" },
+  { src: "/ingested/flagshiparubaa/sunset-bird-silhouette.webp", alt: "A frigate bird gliding over the ocean at sunset" },
 ];
 
 export function Hero() {

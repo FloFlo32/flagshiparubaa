@@ -32,21 +32,37 @@ export function HeroSlideshow({
 
   return (
     <div className={cn("absolute inset-0 overflow-hidden", className)} aria-hidden>
-      {images.map((img, i) => (
-        <Image
-          key={img.src}
-          src={img.src}
-          alt={img.alt}
-          fill
-          priority={i === 0}
-          sizes="100vw"
-          quality={78}
-          className={cn(
-            "object-cover transition-opacity duration-[1500ms] ease-in-out",
-            i === index ? "opacity-100" : "opacity-0"
-          )}
-        />
-      ))}
+      {images.map((img, i) =>
+        i === 0 ? (
+          <Image
+            key={img.src}
+            src={img.src}
+            alt={img.alt}
+            fill
+            priority
+            sizes="100vw"
+            quality={78}
+            className={cn(
+              "object-cover transition-opacity duration-[1500ms] ease-in-out",
+              i === index ? "opacity-100" : "opacity-0"
+            )}
+          />
+        ) : (
+          // Lazy plain <img> beyond the first frame — keeps an N-slide rotation
+          // off the next/image optimizer cap (see CLAUDE.md image performance rules).
+          <img
+            key={img.src}
+            src={img.src}
+            alt={img.alt}
+            loading="lazy"
+            decoding="async"
+            className={cn(
+              "absolute inset-0 size-full object-cover transition-opacity duration-[1500ms] ease-in-out",
+              i === index ? "opacity-100" : "opacity-0"
+            )}
+          />
+        )
+      )}
     </div>
   );
 }
