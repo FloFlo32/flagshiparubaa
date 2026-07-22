@@ -15,14 +15,14 @@
 
 :root {
   /* brand:hue:start */
-  --brand-hue: 222; /* set by brand.config.ts */
+  --brand-hue: 243; /* set by brand.config.ts */
 /* brand:hue:end */
 
   /* radius — brand:corners controls this via `npm run brand` */
   --radius: 0.75rem;
 
-  /* Neutrals tuned with a hint of brand hue (cool, not dead gray) */
-  --background: oklch(0.99 0.004 var(--brand-hue));
+  /* Neutrals — anchored to the brand's two named colors: cream #FDEFDF, navy #00233B */
+  --background: oklch(0.959 0.026 71.2); /* #FDEFDF */
   --foreground: oklch(0.18 0.02 var(--brand-hue));
 
   --card: oklch(1 0 0);
@@ -30,10 +30,9 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.02 var(--brand-hue));
 
-  /* Brand primary scale — all derived from --brand-hue. Lightness pulled down
-     for a true deep-navy character (not a bright/light blue). */
-  --primary: oklch(0.4 0.135 var(--brand-hue));
-  --primary-foreground: oklch(0.99 0.01 var(--brand-hue));
+  /* Brand primary — the exact deep navy #00233B, paired with cream text on top. */
+  --primary: oklch(0.246 0.06 243.5); /* #00233B */
+  --primary-foreground: oklch(0.959 0.026 71.2); /* #FDEFDF */
 
   --secondary: oklch(0.96 0.01 var(--brand-hue));
   --secondary-foreground: oklch(0.25 0.03 var(--brand-hue));
@@ -64,33 +63,33 @@
 }
 
 .dark {
-  /* Near-black mono base: surfaces stay neutral; violet is reserved as the accent. */
-  --background: oklch(0.15 0.004 var(--brand-hue));
-  --foreground: oklch(0.97 0.006 var(--brand-hue));
+  /* Dark mode inverts the pair: navy #00233B becomes the base, cream #FDEFDF the text. */
+  --background: oklch(0.246 0.06 243.5); /* #00233B */
+  --foreground: oklch(0.959 0.026 71.2); /* #FDEFDF */
 
-  --card: oklch(0.185 0.005 var(--brand-hue));
-  --card-foreground: oklch(0.97 0.006 var(--brand-hue));
-  --popover: oklch(0.185 0.005 var(--brand-hue));
-  --popover-foreground: oklch(0.97 0.006 var(--brand-hue));
+  --card: oklch(0.281 0.045 243.5);
+  --card-foreground: oklch(0.959 0.026 71.2);
+  --popover: oklch(0.281 0.045 243.5);
+  --popover-foreground: oklch(0.959 0.026 71.2);
 
-  --primary: oklch(0.7 0.19 var(--brand-hue));
-  --primary-foreground: oklch(0.15 0.02 var(--brand-hue));
+  --primary: oklch(0.72 0.13 243.5);
+  --primary-foreground: oklch(0.246 0.06 243.5); /* #00233B */
 
-  --secondary: oklch(0.24 0.006 var(--brand-hue));
-  --secondary-foreground: oklch(0.97 0.006 var(--brand-hue));
+  --secondary: oklch(0.336 0.035 243.5);
+  --secondary-foreground: oklch(0.959 0.026 71.2);
 
-  --muted: oklch(0.23 0.006 var(--brand-hue));
-  --muted-foreground: oklch(0.72 0.012 var(--brand-hue));
+  --muted: oklch(0.326 0.035 243.5);
+  --muted-foreground: oklch(0.72 0.025 243.5);
 
-  --accent: oklch(0.27 0.012 var(--brand-hue));
-  --accent-foreground: oklch(0.97 0.006 var(--brand-hue));
+  --accent: oklch(0.366 0.045 243.5);
+  --accent-foreground: oklch(0.959 0.026 71.2);
 
   --destructive: oklch(0.65 0.2 25);
   --destructive-foreground: oklch(0.97 0.01 25);
 
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.7 0.19 var(--brand-hue));
+  --ring: oklch(0.72 0.13 243.5);
 
   --aurora-1: oklch(0.65 0.22 var(--brand-hue));
   --aurora-2: oklch(0.68 0.2 calc(var(--brand-hue) + 60));

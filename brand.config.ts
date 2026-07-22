@@ -35,7 +35,7 @@ export const brand = {
   /** Theme — drives the whole color system. Run `npm run brand` after editing. */
   theme: {
     /** Brand hue in OKLCH degrees (0–360). This single number re-skins the site. */
-    hue: 222,
+    hue: 243,
     /** Corner style. "sharp" = modern/editorial, "rounded" = friendly, "pill" = playful. */
     corners: "rounded" as "sharp" | "rounded" | "pill",
     /** Default color scheme on first paint. */
