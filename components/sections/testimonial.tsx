@@ -9,12 +9,12 @@ export function Testimonial() {
         <div className="grid overflow-hidden rounded-3xl border border-border bg-card shadow-sm md:grid-cols-[0.6fr_1.4fr]">
           <div className="relative aspect-[4/5] md:aspect-auto md:min-h-[28rem]">
             <Image
-              src="/ingested/flagshiparubaa/schooner-pink-sunset.webp"
-              alt="Flagship Aruba's pirate-style schooner sailing under a pink sunset sky"
+              src="/ingested/flagshiparubaa/schooner-turquoise-anchor.webp"
+              alt="Flagship Aruba's schooner anchored over crystal-clear turquoise water with snorkelers alongside"
               fill
               sizes="(max-width: 768px) 100vw, 45vw"
               quality={78}
-              className="object-cover object-bottom"
+              className="object-cover"
             />
           </div>
           <div className="flex flex-col justify-center gap-4 p-8 sm:p-10">

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookButton } from "@/components/ui/book-button";
+import { LanguageSwitcher } from "@/components/sections/language-switcher";
 
 const tours = [
   { href: "/flagshiparuba-morning-snorkel-cruise", label: "Morning Splash Adventure" },
@@ -121,8 +122,9 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
-          <BookButton className="hidden items-center rounded-full bg-card px-5 py-2.5 text-sm font-semibold text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] sm:inline-flex">
+        <div className="flex items-center gap-1">
+          <LanguageSwitcher className="hidden lg:block" />
+          <BookButton className="ml-1 hidden items-center rounded-full bg-card px-5 py-2.5 text-sm font-semibold text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] sm:inline-flex">
             Book Now
           </BookButton>
           <button
@@ -166,6 +168,9 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
+            <div className="mt-2 border-t border-primary-foreground/15 pt-3">
+              <LanguageSwitcher align="left" />
+            </div>
             <BookButton
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center rounded-full bg-card px-5 py-2.5 text-sm font-semibold text-primary"
