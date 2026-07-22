@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw dropped source media (originals live in ideas/<slug>/assets/; processed,
+# web-sized copies go to public/ingested/<slug>/ and ARE committed)
+ideas/*/assets/*.mp4
+ideas/*/assets/*.mov
+

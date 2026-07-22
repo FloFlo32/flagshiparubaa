@@ -26,6 +26,10 @@ export default function AfternoonPiratePartyPage() {
       ]}
       sectionTitle="A Midday Escape Full of Fun"
       sectionBody="This is the cruise for guests who want a bit of pirate mischief with their snorkeling. Expect music on deck, a crew that keeps the energy up, and a rope swing that turns into the highlight of everyone's trip."
+      sectionImage={{
+        src: "/ingested/flagshiparubaa/crew-member-smiling.webp",
+        alt: "A Flagship Aruba crew member in high spirits aboard the schooner",
+      }}
       goodToKnow={[
         "Departs from the pier in front of MooMba Beach Bar, Palm Beach",
         "Snorkel gear and an open bar are included",

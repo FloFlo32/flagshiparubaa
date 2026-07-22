@@ -26,6 +26,10 @@ export default function MorningSplashAdventurePage() {
       ]}
       sectionTitle="Make Your Morning Magical!"
       sectionBody="Slip into the water while it's calm and clear, before the afternoon crowds arrive. Our crew guides you to the best snorkel stops of the day, then keeps drinks and snacks coming while you dry off on deck."
+      sectionImage={{
+        src: "/ingested/flagshiparubaa/snorkeler-boca-catalina.webp",
+        alt: "A guest snorkeling at Boca Catalina Reefs, Aruba",
+      }}
       goodToKnow={[
         "Departs from the pier in front of MooMba Beach Bar, Palm Beach",
         "Snorkel gear, drinks, and snacks are included",

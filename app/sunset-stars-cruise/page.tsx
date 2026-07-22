@@ -26,6 +26,10 @@ export default function SunsetStarsCruisePage() {
       ]}
       sectionTitle="A Magical Evening at Sea"
       sectionBody="As the light turns gold and the schooner's sails catch the last of the breeze, this is the cruise for slowing down. Local bites and drinks come around while the sky does the rest of the work."
+      sectionImage={{
+        src: "/ingested/flagshiparubaa/schooner-pink-sunset.webp",
+        alt: "Flagship Aruba's schooner sailing under a pink sunset sky",
+      }}
       goodToKnow={[
         "Departs from the pier in front of MooMba Beach Bar, Palm Beach",
         "Local bites and drinks are included",
