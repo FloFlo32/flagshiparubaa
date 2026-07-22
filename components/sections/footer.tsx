@@ -13,6 +13,7 @@ const menu = [
 ];
 
 const info = [
+  { label: "Blog", href: "/blog" },
   { label: "Reviews", href: "/reviews" },
   { label: "FAQ", href: "/faq" },
   { label: "Address", href: "/address" },

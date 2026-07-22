@@ -17,6 +17,7 @@ const tours = [
 const links = [
   { href: "/about-us", label: "About Us" },
   { href: "/flagship-aruba-snorkel-sites", label: "Our Snorkel Sites" },
+  { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
