@@ -3,10 +3,11 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown, Sailboat } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookButton } from "@/components/ui/book-button";
 import { LanguageSwitcher } from "@/components/sections/language-switcher";
+import { FlagshipMark } from "@/components/icons";
 import { snorkelSites } from "@/lib/snorkel-sites";
 
 const tours = [
@@ -103,7 +104,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full bg-primary shadow-sm">
       <nav className="container-px mx-auto flex h-20 max-w-6xl items-center justify-between">
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Flagship Aruba home">
-          <Sailboat className="size-8 shrink-0 text-primary-foreground" strokeWidth={1.75} />
+          <FlagshipMark className="size-8 shrink-0 text-primary-foreground" />
           <Image src="/logo.webp" alt="Flagship Aruba" width={168} height={67} priority className="h-12 w-auto" />
         </Link>
 

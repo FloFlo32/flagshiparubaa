@@ -30,6 +30,38 @@ export function XIcon({ className }: { className?: string }) {
   );
 }
 
+/**
+ * FlagshipMark — the brand's sailboat glyph, paired with the wordmark in the
+ * navbar and footer. A custom mark (not a lucide icon) since this is the
+ * brand's logo, not a generic UI icon. Sits on a bg-primary surface: the
+ * fill is currentColor (the surface's foreground token) and the mast seam
+ * is drawn in var(--color-primary) so it reads as a cutout against the sail.
+ */
+export function FlagshipMark({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden
+      className={cn("size-8", className)}
+    >
+      <g fill="currentColor">
+        <path d="M16 4 L16 20 L26 20 Z" />
+        <path d="M16 7.5 L16 20 L9 20 Z" />
+        <path d="M6 20 L26 20 L23 25 Q16 28.5 9 25 Z" />
+      </g>
+      <line x1="16" y1="4" x2="16" y2="20" stroke="var(--color-primary)" strokeWidth="0.55" />
+      <circle cx="16" cy="3.5" r="0.85" fill="currentColor" />
+      <path
+        d="M2 28.3 Q6 25.6 10 28.3 T18 28.3 T26 28.3 T30 28.3"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg
