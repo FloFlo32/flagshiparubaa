@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Users, PartyPopper, ArrowRight } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
 import { BookButton } from "@/components/ui/book-button";
+import { cn } from "@/lib/utils";
 
 const options = [
   {
@@ -34,9 +35,17 @@ export function GroupsAndEvents() {
           {options.map((o) => (
             <RevealItem
               key={o.title}
-              className="flex flex-col items-center gap-4 rounded-3xl border border-border bg-card p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 sm:p-10"
+              className={cn(
+                "flex flex-col items-center gap-4 rounded-3xl border border-border bg-card p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 sm:p-10",
+                o.title === "Book for Groups" ? "hover:shadow-lg hover:shadow-primary/5" : "hover:shadow-lg hover:shadow-ocean/10"
+              )}
             >
-              <span className="grid size-14 place-items-center rounded-2xl bg-primary/10 text-primary">
+              <span
+                className={cn(
+                  "grid size-14 place-items-center rounded-2xl",
+                  o.title === "Book for Groups" ? "bg-primary/10 text-primary" : "bg-ocean/10 text-ocean"
+                )}
+              >
                 <o.icon className="size-7" />
               </span>
               <h3 className="text-xl font-bold">{o.title}</h3>
@@ -48,7 +57,7 @@ export function GroupsAndEvents() {
               ) : (
                 <Link
                   href="/contact"
-                  className="mt-2 inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
+                  className="mt-2 inline-flex cursor-pointer items-center gap-2 rounded-full bg-ocean px-6 py-3 text-sm font-semibold text-ocean-foreground transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
                 >
                   {o.cta} <ArrowRight className="size-4" />
                 </Link>

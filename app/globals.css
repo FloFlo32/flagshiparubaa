@@ -34,6 +34,12 @@
   --primary: oklch(0.246 0.06 243.5); /* #00233B */
   --primary-foreground: oklch(0.959 0.026 71.2); /* #FDEFDF */
 
+  /* Third accent — a vivid ocean blue, fixed hue (not brand-derived). Reserved
+     for pricing/duration figures and secondary buttons, punctuating the
+     cream + navy pair without competing with the primary navy CTAs. */
+  --ocean: oklch(0.5 0.16 205);
+  --ocean-foreground: oklch(0.98 0.01 205);
+
   --secondary: oklch(0.96 0.01 var(--brand-hue));
   --secondary-foreground: oklch(0.25 0.03 var(--brand-hue));
 
@@ -75,6 +81,9 @@
   --primary: oklch(0.72 0.13 243.5);
   --primary-foreground: oklch(0.246 0.06 243.5); /* #00233B */
 
+  --ocean: oklch(0.68 0.14 205);
+  --ocean-foreground: oklch(0.15 0.02 205);
+
   --secondary: oklch(0.336 0.035 243.5);
   --secondary-foreground: oklch(0.959 0.026 71.2);
 
@@ -106,6 +115,8 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-ocean: var(--ocean);
+  --color-ocean-foreground: var(--ocean-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);

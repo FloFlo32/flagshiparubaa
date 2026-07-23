@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CheckCircle2, Clock, Users, MapPin } from "lucide-react";
+import { CheckCircle2, Clock, Users, MapPin, DollarSign } from "lucide-react";
 import { Navbar } from "@/components/sections/navbar";
 import { PageHero } from "@/components/sections/page-hero";
 import { CTA } from "@/components/sections/cta";
@@ -52,28 +52,26 @@ export function TourDetail({
           cta={{ label: "Book Now", activityId }}
         />
 
-        <section className="border-b border-border bg-card py-8">
+        <section className="border-b border-border bg-secondary/30 py-14 sm:py-16">
           <div className="container-px mx-auto max-w-6xl">
-            <RevealGroup className="grid grid-cols-4 gap-4 sm:gap-8">
-              <RevealItem className="text-center">
-                <p className="text-2xl font-bold text-primary sm:text-3xl">{price}</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Per Guest</p>
-              </RevealItem>
-              <RevealItem className="text-center">
-                <Clock className="mx-auto size-5 text-primary sm:hidden" />
-                <p className="mt-1 text-2xl font-bold text-primary sm:mt-0 sm:text-3xl">{duration}</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Duration</p>
-              </RevealItem>
-              <RevealItem className="text-center">
-                <Users className="mx-auto size-5 text-primary sm:hidden" />
-                <p className="mt-1 text-2xl font-bold text-primary sm:mt-0 sm:text-3xl">{capacity}</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Group Size</p>
-              </RevealItem>
-              <RevealItem className="text-center">
-                <MapPin className="mx-auto size-5 text-primary sm:hidden" />
-                <p className="mt-1 text-2xl font-bold text-primary sm:mt-0 sm:text-3xl">{departs}</p>
-                <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Departure</p>
-              </RevealItem>
+            <RevealGroup className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-5">
+              {[
+                { icon: DollarSign, value: price, label: "Per Guest" },
+                { icon: Clock, value: duration, label: "Duration" },
+                { icon: Users, value: capacity, label: "Group Size" },
+                { icon: MapPin, value: departs, label: "Departure" },
+              ].map((s) => (
+                <RevealItem
+                  key={s.label}
+                  className="flex flex-col items-center gap-2 rounded-2xl border border-border bg-card p-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-ocean/10 sm:p-6"
+                >
+                  <span className="grid size-11 place-items-center rounded-xl bg-ocean/10 text-ocean">
+                    <s.icon className="size-5" />
+                  </span>
+                  <p className="mt-1 text-xl font-bold text-ocean sm:text-2xl">{s.value}</p>
+                  <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">{s.label}</p>
+                </RevealItem>
+              ))}
             </RevealGroup>
           </div>
         </section>

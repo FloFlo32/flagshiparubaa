@@ -106,7 +106,7 @@ export function ToursGrid({ heading = true }: { heading?: boolean }) {
                 </h3>
               </Link>
               <p className="flex-1 text-pretty text-sm text-muted-foreground">{t.description}</p>
-              <p className="text-lg font-bold text-primary">
+              <p className="text-lg font-bold text-ocean">
                 {t.price} <span className="text-sm font-medium text-muted-foreground">per guest</span>
               </p>
               <BookButton

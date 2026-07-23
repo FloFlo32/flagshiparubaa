@@ -1,8 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { Play } from "lucide-react";
-import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
+import { Play, Film } from "lucide-react";
+import { Reveal } from "@/components/magic/reveal";
+import { AuroraBackground } from "@/components/magic/aurora-background";
+import { GridPattern } from "@/components/magic/grid-pattern";
+import { BorderBeam } from "@/components/magic/border-beam";
+import { AutoSlider } from "@/components/magic/auto-slider";
 import { cn } from "@/lib/utils";
 
 const clips = [
@@ -32,12 +36,12 @@ const clips = [
   },
 ];
 
-function VideoCard({ clip }: { clip: (typeof clips)[number] }) {
+function VideoCard({ clip, index }: { clip: (typeof clips)[number]; index: number }) {
   const [playing, setPlaying] = React.useState(false);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-card">
+    <div className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-ocean/10">
       <div className="relative aspect-[9/16] bg-muted">
         {playing ? (
           <video
@@ -54,7 +58,7 @@ function VideoCard({ clip }: { clip: (typeof clips)[number] }) {
             type="button"
             onClick={() => setPlaying(true)}
             aria-label={`Play video: ${clip.caption}`}
-            className="group relative block size-full cursor-pointer"
+            className="relative block size-full cursor-pointer"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -62,15 +66,14 @@ function VideoCard({ clip }: { clip: (typeof clips)[number] }) {
               alt={clip.caption}
               loading="lazy"
               decoding="async"
-              className="size-full object-cover"
+              className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <span className="absolute inset-0 bg-black/15 transition-colors group-hover:bg-black/25" />
-            <span
-              className={cn(
-                "absolute inset-0 grid place-items-center transition-transform duration-200 group-hover:scale-110"
-              )}
-            >
-              <span className="grid size-14 place-items-center rounded-full bg-white/90 text-primary shadow-lg">
+            <span className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/25" />
+            <span className="absolute left-3 top-3 grid size-8 place-items-center rounded-full bg-ocean text-xs font-bold text-ocean-foreground shadow-md">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span className="absolute inset-0 grid place-items-center transition-transform duration-200 group-hover:scale-110">
+              <span className="grid size-14 place-items-center rounded-full bg-white/90 text-ocean shadow-lg">
                 <Play className="size-6 fill-current" />
               </span>
             </span>
@@ -87,8 +90,10 @@ function VideoCard({ clip }: { clip: (typeof clips)[number] }) {
 
 export function VideoHighlights() {
   return (
-    <section className="bg-secondary/40 py-20 sm:py-24">
-      <div className="container-px mx-auto max-w-6xl">
+    <section className="relative overflow-hidden bg-secondary/40 py-20 sm:py-24">
+      <AuroraBackground className="opacity-40" />
+      <GridPattern />
+      <div className="container-px relative mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Behind the Scenes</span>
           <h2 className="mt-3 text-balance text-4xl font-bold sm:text-5xl">Watch our story unfold</h2>
@@ -99,7 +104,8 @@ export function VideoHighlights() {
         </Reveal>
 
         <Reveal delay={0.06} className="mt-10">
-          <div className="overflow-hidden rounded-3xl border border-border bg-card">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-lg shadow-ocean/5">
+            <BorderBeam colorFrom="var(--color-ocean)" colorTo="var(--color-aurora-1)" size={90} />
             <div className="relative aspect-video bg-muted">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -109,21 +115,24 @@ export function VideoHighlights() {
                 decoding="async"
                 className="size-full object-cover"
               />
+              <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-ocean px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-ocean-foreground shadow-md">
+                <Film className="size-3.5" /> Featured
+              </span>
             </div>
-            <div className="p-5 text-center">
-              <p className="font-semibold">Ready, set, splash!</p>
+            <div className={cn("p-5 text-center sm:p-6")}>
+              <p className="text-lg font-semibold">Ready, set, splash!</p>
               <p className="mt-1 text-sm text-muted-foreground">Guests geared up and ready to jump in.</p>
             </div>
           </div>
         </Reveal>
 
-        <RevealGroup className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {clips.map((clip) => (
-            <RevealItem key={clip.src}>
-              <VideoCard clip={clip} />
-            </RevealItem>
-          ))}
-        </RevealGroup>
+        <Reveal delay={0.1} className="mt-8">
+          <AutoSlider itemClassName="w-[74%] sm:w-[42%] lg:w-[24%]">
+            {clips.map((clip, i) => (
+              <VideoCard key={clip.src} clip={clip} index={i} />
+            ))}
+          </AutoSlider>
+        </Reveal>
       </div>
     </section>
   );

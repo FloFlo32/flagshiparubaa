@@ -1,4 +1,4 @@
-import { Clock, Users, MapPin, CheckCircle2 } from "lucide-react";
+import { Clock, Users, MapPin, CheckCircle2, DollarSign } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
 import { BookButton } from "@/components/ui/book-button";
 import { tours } from "@/components/sections/tours-grid";
@@ -42,27 +42,24 @@ export function TourPricing() {
               <h3 className="mt-3 text-balance text-3xl font-bold sm:text-4xl">{t.title}</h3>
               <p className="mt-4 text-pretty text-muted-foreground">{t.description}</p>
 
-              <div className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span className="text-3xl font-bold text-primary">{t.price}</span>
-                <span className="text-sm font-medium text-muted-foreground">per guest</span>
-              </div>
-
-              <div className="mt-6 grid grid-cols-3 gap-3 border-y border-border py-5 text-center">
-                <div>
-                  <Clock className="mx-auto size-5 text-primary" />
-                  <p className="mt-1.5 text-sm font-semibold">{t.duration}</p>
-                  <p className="text-xs text-muted-foreground">Duration</p>
-                </div>
-                <div>
-                  <Users className="mx-auto size-5 text-primary" />
-                  <p className="mt-1.5 text-sm font-semibold">{t.capacity}</p>
-                  <p className="text-xs text-muted-foreground">Group size</p>
-                </div>
-                <div>
-                  <MapPin className="mx-auto size-5 text-primary" />
-                  <p className="mt-1.5 text-sm font-semibold">{t.departs}</p>
-                  <p className="text-xs text-muted-foreground">Departure</p>
-                </div>
+              <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {[
+                  { icon: DollarSign, value: t.price, label: "Per Guest" },
+                  { icon: Clock, value: t.duration, label: "Duration" },
+                  { icon: Users, value: t.capacity, label: "Group Size" },
+                  { icon: MapPin, value: t.departs, label: "Departure" },
+                ].map((s) => (
+                  <div
+                    key={s.label}
+                    className="flex flex-col items-center gap-1.5 rounded-2xl border border-border bg-card p-4 text-center shadow-sm"
+                  >
+                    <span className="grid size-9 place-items-center rounded-lg bg-ocean/10 text-ocean">
+                      <s.icon className="size-4" />
+                    </span>
+                    <p className="mt-0.5 text-base font-bold text-ocean">{s.value}</p>
+                    <p className="text-[0.65rem] font-medium uppercase tracking-[0.1em] text-muted-foreground">{s.label}</p>
+                  </div>
+                ))}
               </div>
 
               <ul className="mt-6 space-y-2.5">

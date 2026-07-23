@@ -3,12 +3,13 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookButton } from "@/components/ui/book-button";
 import { LanguageSwitcher } from "@/components/sections/language-switcher";
 import { FlagshipMark } from "@/components/icons";
 import { snorkelSites } from "@/lib/snorkel-sites";
+import { brand } from "@/brand.config";
 
 const tours = [
   { href: "/flagshiparuba-morning-snorkel-cruise", label: "Morning Splash Adventure" },
@@ -70,7 +71,7 @@ function NavDropdown({
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/85 transition-colors hover:text-primary-foreground"
+        className="flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
       >
         {label} <ChevronDown className={cn("size-3.5 transition-transform", open && "rotate-180")} />
       </button>
@@ -101,18 +102,15 @@ export function Navbar() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-primary shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 shadow-sm backdrop-blur-sm">
       <nav className="container-px mx-auto flex h-20 max-w-6xl items-center justify-between">
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Flagship Aruba home">
-          <FlagshipMark className="size-8 shrink-0 text-primary-foreground" />
-          <Image src="/logo.webp" alt="Flagship Aruba" width={168} height={67} priority className="h-12 w-auto" />
+          <FlagshipMark className="size-8 shrink-0 text-primary" seam="var(--color-card)" />
+          <Image src="/logo-dark.webp" alt="Flagship Aruba" width={168} height={67} priority className="h-11 w-auto" />
         </Link>
 
         <div className="hidden items-center gap-1 lg:flex">
-          <Link
-            href="/"
-            className="rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/85 transition-colors hover:text-primary-foreground"
-          >
+          <Link href="/" className="rounded-md px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-primary">
             Home
           </Link>
 
@@ -122,7 +120,7 @@ export function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/85 transition-colors hover:text-primary-foreground"
+              className="rounded-md px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
             >
               {l.label}
             </Link>
@@ -134,7 +132,7 @@ export function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/85 transition-colors hover:text-primary-foreground"
+              className="rounded-md px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
             >
               {l.label}
             </Link>
@@ -142,13 +140,19 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-1">
+          <a
+            href={`tel:${brand.contact.phone.replace(/\s+/g, "")}`}
+            className="mr-1 hidden cursor-pointer items-center gap-1.5 rounded-md px-2 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-ocean xl:inline-flex"
+          >
+            <Phone className="size-4 text-ocean" /> {brand.contact.phone}
+          </a>
           <LanguageSwitcher className="hidden lg:block" />
-          <BookButton className="ml-1 hidden items-center rounded-full bg-card px-5 py-2.5 text-sm font-semibold text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] sm:inline-flex">
+          <BookButton className="ml-1 hidden items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] sm:inline-flex">
             Book Now
           </BookButton>
           <button
             type="button"
-            className="grid size-10 cursor-pointer place-items-center rounded-md text-primary-foreground lg:hidden"
+            className="grid size-10 cursor-pointer place-items-center rounded-md text-foreground lg:hidden"
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((o) => !o)}
@@ -159,18 +163,18 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-primary-foreground/15 bg-primary lg:hidden">
+        <div className="border-t border-border bg-card lg:hidden">
           <div className="container-px mx-auto flex max-w-6xl flex-col gap-1 py-4">
-            <Link href="/" onClick={() => setOpen(false)} className="rounded-md px-3 py-2.5 text-sm font-medium text-primary-foreground/90 hover:bg-primary-foreground/10">
+            <Link href="/" onClick={() => setOpen(false)} className="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/90 hover:bg-accent">
               Home
             </Link>
-            <span className="px-3 py-2.5 text-sm font-medium text-primary-foreground/60">Boat Tours</span>
+            <span className="px-3 py-2.5 text-sm font-medium text-muted-foreground">Boat Tours</span>
             {tours.map((t) => (
               <Link
                 key={t.href}
                 href={t.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2.5 pl-6 text-sm text-primary-foreground/75 hover:bg-primary-foreground/10"
+                className="rounded-md px-3 py-2.5 pl-6 text-sm text-foreground/75 hover:bg-accent"
               >
                 {t.label}
               </Link>
@@ -180,18 +184,18 @@ export function Navbar() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2.5 text-sm font-medium text-primary-foreground/90 hover:bg-primary-foreground/10"
+                className="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/90 hover:bg-accent"
               >
                 {l.label}
               </Link>
             ))}
-            <span className="px-3 py-2.5 text-sm font-medium text-primary-foreground/60">Our Snorkel Sites</span>
+            <span className="px-3 py-2.5 text-sm font-medium text-muted-foreground">Our Snorkel Sites</span>
             {sites.map((s) => (
               <Link
                 key={s.href}
                 href={s.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2.5 pl-6 text-sm text-primary-foreground/75 hover:bg-primary-foreground/10"
+                className="rounded-md px-3 py-2.5 pl-6 text-sm text-foreground/75 hover:bg-accent"
               >
                 {s.label}
               </Link>
@@ -201,17 +205,23 @@ export function Navbar() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2.5 text-sm font-medium text-primary-foreground/90 hover:bg-primary-foreground/10"
+                className="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/90 hover:bg-accent"
               >
                 {l.label}
               </Link>
             ))}
-            <div className="mt-2 border-t border-primary-foreground/15 pt-3">
+            <a
+              href={`tel:${brand.contact.phone.replace(/\s+/g, "")}`}
+              className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium text-foreground/90 hover:bg-accent"
+            >
+              <Phone className="size-4 text-ocean" /> {brand.contact.phone}
+            </a>
+            <div className="mt-2 border-t border-border pt-3">
               <LanguageSwitcher align="left" />
             </div>
             <BookButton
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-card px-5 py-2.5 text-sm font-semibold text-primary"
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
             >
               Book Now
             </BookButton>

@@ -2,6 +2,7 @@
  * Brand glyphs. Lucide removed GitHub/X icons over trademark concerns, so we
  * ship small inline SVGs here. They inherit currentColor + className sizing.
  */
+import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export function GitHubIcon({ className }: { className?: string }) {
@@ -37,7 +38,7 @@ export function XIcon({ className }: { className?: string }) {
  * fill is currentColor (the surface's foreground token) and the mast seam
  * is drawn in var(--color-primary) so it reads as a cutout against the sail.
  */
-export function FlagshipMark({ className }: { className?: string }) {
+export function FlagshipMark({ className, seam = "var(--color-primary)" }: { className?: string; seam?: string }) {
   return (
     <svg
       viewBox="0 0 32 32"
@@ -50,7 +51,7 @@ export function FlagshipMark({ className }: { className?: string }) {
         <path d="M16 7.5 L16 20 L9 20 Z" />
         <path d="M6 20 L26 20 L23 25 Q16 28.5 9 25 Z" />
       </g>
-      <line x1="16" y1="4" x2="16" y2="20" stroke="var(--color-primary)" strokeWidth="0.55" />
+      <line x1="16" y1="4" x2="16" y2="20" stroke={seam} strokeWidth="0.55" />
       <circle cx="16" cy="3.5" r="0.85" fill="currentColor" />
       <path
         d="M2 28.3 Q6 25.6 10 28.3 T18 28.3 T26 28.3 T30 28.3"
@@ -59,6 +60,76 @@ export function FlagshipMark({ className }: { className?: string }) {
         strokeLinecap="round"
       />
     </svg>
+  );
+}
+
+/**
+ * Flag swatches for the language switcher. Plain inline SVG (not emoji):
+ * regional-indicator flag emoji fall back to rendering as bare two-letter
+ * text ("GB", "NL"...) on Windows/headless Chromium and many Linux setups,
+ * so an emoji-only approach silently breaks on a large share of visitors.
+ * These are simplified flat-color renditions, not official spec artwork.
+ */
+function FlagSwatch({ className, children }: { className?: string; children: ReactNode }) {
+  return (
+    <svg
+      viewBox="0 0 20 15"
+      className={cn("h-3.5 w-5 shrink-0 overflow-hidden rounded-[3px]", className)}
+      aria-hidden
+    >
+      {children}
+    </svg>
+  );
+}
+
+export function FlagGB({ className }: { className?: string }) {
+  return (
+    <FlagSwatch className={className}>
+      <rect width="20" height="15" fill="#00247D" />
+      <path d="M0 0 20 15M20 0 0 15" stroke="#fff" strokeWidth="3" />
+      <path d="M0 0 20 15M20 0 0 15" stroke="#CF142B" strokeWidth="1" />
+      <path d="M10 0V15M0 7.5H20" stroke="#fff" strokeWidth="5" />
+      <path d="M10 0V15M0 7.5H20" stroke="#CF142B" strokeWidth="3" />
+    </FlagSwatch>
+  );
+}
+
+export function FlagNL({ className }: { className?: string }) {
+  return (
+    <FlagSwatch className={className}>
+      <rect width="20" height="15" fill="#21468B" />
+      <rect width="20" height="10" fill="#FFF" />
+      <rect width="20" height="5" fill="#AE1C28" />
+    </FlagSwatch>
+  );
+}
+
+export function FlagES({ className }: { className?: string }) {
+  return (
+    <FlagSwatch className={className}>
+      <rect width="20" height="15" fill="#AA151B" />
+      <rect y="3.75" width="20" height="7.5" fill="#F1BF00" />
+    </FlagSwatch>
+  );
+}
+
+export function FlagDE({ className }: { className?: string }) {
+  return (
+    <FlagSwatch className={className}>
+      <rect width="20" height="5" fill="#000" />
+      <rect y="5" width="20" height="5" fill="#DD0000" />
+      <rect y="10" width="20" height="5" fill="#FFCE00" />
+    </FlagSwatch>
+  );
+}
+
+export function FlagPT({ className }: { className?: string }) {
+  return (
+    <FlagSwatch className={className}>
+      <rect width="20" height="15" fill="#FF0000" />
+      <rect width="8" height="15" fill="#006600" />
+      <circle cx="8" cy="7.5" r="2.6" fill="#FFCC00" stroke="#FFF" strokeWidth="0.4" />
+    </FlagSwatch>
   );
 }
 
