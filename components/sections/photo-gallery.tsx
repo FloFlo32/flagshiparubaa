@@ -6,7 +6,7 @@ const images = [
   { src: "/ingested/flagshiparubaa/schooner-sunset-guests.webp", alt: "Flagship Aruba's schooner sailing into a golden sunset with guests aboard" },
   { src: "/ingested/flagshiparubaa/afternoon-pirate-party.webp", alt: "The Aruba coastline where the Afternoon Pirate Party sails" },
   { src: "/ingested/flagshiparubaa/sunset-bird-silhouette.webp", alt: "A bird silhouetted against an Aruba sunset over the ocean" },
-  { src: "/ingested/flagshiparubaa/tall-ship-horizon.webp", alt: "A tall ship sailing on the open water off Aruba" },
+  { src: "/ingested/flagshiparubaa/flagship-hull-name.webp", alt: "The Flagship Aruba schooner's stern, freshly painted with the boat's name" },
   { src: "/ingested/flagshiparubaa/coastline-cliff-sunset.webp", alt: "The Aruba coastline at sunset with a schooner offshore" },
   { src: "/ingested/flagshiparubaa/snorkeler-boca-catalina.webp", alt: "A guest snorkeling at Boca Catalina Reefs, Aruba" },
   { src: "/ingested/flagshiparubaa/snorkel-sea-turtle.webp", alt: "A sea turtle swimming near one of Aruba's snorkel sites" },

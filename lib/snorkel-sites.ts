@@ -26,8 +26,8 @@ export const snorkelSites: SnorkelSite[] = [
       alt: "A guest snorkeling in the clear shallow water at Boca Catalina Reefs, Aruba",
     },
     secondaryImage: {
-      src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp",
-      alt: "Aerial view of the calm turquoise cove at Boca Catalina",
+      src: "/ingested/flagshiparubaa/guest-c.webp",
+      alt: "A family snorkeling together at Boca Catalina, with the schooner in the background",
     },
     stats: [
       { label: "Visibility", value: "Outstanding" },
@@ -61,8 +61,8 @@ export const snorkelSites: SnorkelSite[] = [
       alt: "Malmok Beach, one of the top Aruba snorkel sites",
     },
     secondaryImage: {
-      src: "/ingested/flagshiparubaa/snorkel-sites-map.webp",
-      alt: "Map of Aruba highlighting the Malmok snorkel area near Noord",
+      src: "/ingested/flagshiparubaa/guest-h.webp",
+      alt: "Guests relaxing in the bow net over the turquoise water off Malmok",
     },
     stats: [
       { label: "Visibility", value: "Exceptional" },
@@ -97,8 +97,8 @@ export const snorkelSites: SnorkelSite[] = [
     },
     heroImagePosition: "object-bottom",
     secondaryImage: {
-      src: "/ingested/flagshiparubaa/aerial-yacht-reef.webp",
-      alt: "Aerial view of a boat anchored near a reef close to the SS Antilla site",
+      src: "/ingested/flagshiparubaa/snorkeler-boca-catalina.webp",
+      alt: "A guest snorkeling in the clear water near the SS Antilla",
     },
     stats: [
       { label: "Depth", value: "60 feet" },

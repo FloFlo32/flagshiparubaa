@@ -50,6 +50,7 @@ export function HeroSlideshow({
         ) : (
           // Lazy plain <img> beyond the first frame — keeps an N-slide rotation
           // off the next/image optimizer cap (see CLAUDE.md image performance rules).
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             key={img.src}
             src={img.src}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/sections/navbar";
 import { PageHero } from "@/components/sections/page-hero";
-import { ToursGrid } from "@/components/sections/tours-grid";
+import { TourPricing } from "@/components/sections/tour-pricing";
 import { PhotoGallery } from "@/components/sections/photo-gallery";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
@@ -9,7 +9,7 @@ import { Footer } from "@/components/sections/footer";
 export const metadata: Metadata = {
   title: "Boat Tours",
   description:
-    "A two-hour journey across Aruba's crystal-clear Caribbean waters with a sharing platter and self-service open bar. Which boat will you be on?",
+    "Three ways to sail with Flagship Aruba: a morning snorkel adventure, an afternoon pirate party, and a sunset cruise. Prices from $69 per guest.",
 };
 
 export default function BoatToursPage() {
@@ -20,9 +20,9 @@ export default function BoatToursPage() {
         <PageHero
           eyebrow="Boat Tours"
           title="Set Sail with Flagship Aruba!"
-          description="A two-hour journey across the crystal-clear Caribbean waters aboard our pirate-style schooner, with a tasty sharing platter and a self-service open bar featuring cocktails, local beers, fine wines, soft drinks, and juices. Starting around $69 per guest."
+          description="Three ways to be on the water aboard our pirate-style schooner: a morning snorkel adventure, a lively afternoon pirate party, or a laid-back sunset cruise. Every cruise includes a self-service open bar with cocktails, local beers, fine wines, soft drinks, and juices. Prices start from $69 per guest."
         />
-        <ToursGrid />
+        <TourPricing />
         <PhotoGallery />
         <CTA />
       </main>

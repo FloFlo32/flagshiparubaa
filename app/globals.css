@@ -197,6 +197,19 @@
   padding-inline: 1.5rem;
 }
 
+/* Google page-translate (see LanguageSwitcher): hide its banner/toolbar and
+   the top offset it injects on <body>, since our own switcher is the only UI. */
+.goog-te-banner-frame,
+.skiptranslate > iframe {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+#google_translate_element {
+  display: none !important;
+}
+
 /* Gradient text — allowed and encouraged here. Use to punctuate, not everywhere. */
 @utility text-gradient {
   background: linear-gradient(

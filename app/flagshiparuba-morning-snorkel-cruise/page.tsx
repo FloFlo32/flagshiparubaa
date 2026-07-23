@@ -18,6 +18,10 @@ export default function MorningSplashAdventurePage() {
         alt: "The Aruba coastline at sunset with Flagship Aruba's schooner offshore",
       }}
       activityId="01083159-5861-4408-b78d-22c81e19faa4"
+      price="$69"
+      duration="4 hours"
+      departs="9:00 AM"
+      capacity="Up to 40"
       whatToExpect={[
         "A 4-hour morning cruise departing from MooMba Pier, Palm Beach",
         "Snorkel gear included, with stops at Aruba's best sites",

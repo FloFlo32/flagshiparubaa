@@ -3,8 +3,6 @@ import { Reveal } from "@/components/magic/reveal";
 import { HeroSlideshow } from "@/components/magic/hero-slideshow";
 import { BookButton } from "@/components/ui/book-button";
 
-const bullets = ["Sailing & Snorkeling Bliss", "Splash & Swing Thrills", "Sunset & Dinner Cruises"];
-
 const slides = [
   { src: "/ingested/flagshiparubaa/aerial-yacht-reef.webp", alt: "Aerial view of our schooner anchored over a reef" },
   { src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp", alt: "Our schooner drifting over turquoise Aruba waters" },
@@ -18,6 +16,14 @@ const slides = [
   { src: "/ingested/flagshiparubaa/schooner-sunset-guests.webp", alt: "Guests aboard our schooner at sunset" },
   { src: "/ingested/flagshiparubaa/schooner-pink-sunset.webp", alt: "Our schooner silhouetted against a pink sunset sky" },
   { src: "/ingested/flagshiparubaa/sunset-bird-silhouette.webp", alt: "A frigate bird gliding over the ocean at sunset" },
+  { src: "/ingested/flagshiparubaa/guest-a.webp", alt: "Guests toasting with drinks aboard the schooner" },
+  { src: "/ingested/flagshiparubaa/guest-b.webp", alt: "Guests in snorkel gear and life vests, ready to jump in" },
+  { src: "/ingested/flagshiparubaa/guest-c.webp", alt: "A family snorkeling together with the schooner in the background" },
+  { src: "/ingested/flagshiparubaa/guest-d.webp", alt: "Guests sharing shots at the boat's bar" },
+  { src: "/ingested/flagshiparubaa/guest-e.webp", alt: "A big group of guests cheering aboard the schooner" },
+  { src: "/ingested/flagshiparubaa/guest-f.webp", alt: "Guests in swimsuits posing together on deck" },
+  { src: "/ingested/flagshiparubaa/guest-g.webp", alt: "Guests celebrating together at sunset on the boat" },
+  { src: "/ingested/flagshiparubaa/guest-h.webp", alt: "Guests relaxing in the bow net over turquoise water" },
 ];
 
 export function Hero() {
@@ -41,19 +47,6 @@ export function Hero() {
 
         <Reveal delay={0.12}>
           <p className="mx-auto mt-5 max-w-xl text-lg text-white/90">Set Sail with Flagship Aruba!</p>
-        </Reveal>
-
-        <Reveal delay={0.16}>
-          <div className="mx-auto mt-6 flex flex-wrap items-center justify-center gap-2.5">
-            {bullets.map((b) => (
-              <span
-                key={b}
-                className="rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm"
-              >
-                {b}
-              </span>
-            ))}
-          </div>
         </Reveal>
 
         <Reveal delay={0.22}>

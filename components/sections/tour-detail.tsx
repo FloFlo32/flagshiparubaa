@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Clock, Users, MapPin } from "lucide-react";
 import { Navbar } from "@/components/sections/navbar";
 import { PageHero } from "@/components/sections/page-hero";
 import { CTA } from "@/components/sections/cta";
@@ -13,6 +13,10 @@ export function TourDetail({
   heroImage,
   heroImagePosition,
   activityId,
+  price,
+  duration,
+  departs,
+  capacity,
   whatToExpect,
   sectionTitle,
   sectionBody,
@@ -25,6 +29,10 @@ export function TourDetail({
   heroImage: { src: string; alt: string };
   heroImagePosition?: string;
   activityId: string;
+  price: string;
+  duration: string;
+  departs: string;
+  capacity: string;
   whatToExpect: string[];
   sectionTitle: string;
   sectionBody: string;
@@ -43,6 +51,32 @@ export function TourDetail({
           imagePosition={heroImagePosition}
           cta={{ label: "Book Now", activityId }}
         />
+
+        <section className="border-b border-border bg-card py-8">
+          <div className="container-px mx-auto max-w-6xl">
+            <RevealGroup className="grid grid-cols-4 gap-4 sm:gap-8">
+              <RevealItem className="text-center">
+                <p className="text-2xl font-bold text-primary sm:text-3xl">{price}</p>
+                <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Per Guest</p>
+              </RevealItem>
+              <RevealItem className="text-center">
+                <Clock className="mx-auto size-5 text-primary sm:hidden" />
+                <p className="mt-1 text-2xl font-bold text-primary sm:mt-0 sm:text-3xl">{duration}</p>
+                <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Duration</p>
+              </RevealItem>
+              <RevealItem className="text-center">
+                <Users className="mx-auto size-5 text-primary sm:hidden" />
+                <p className="mt-1 text-2xl font-bold text-primary sm:mt-0 sm:text-3xl">{capacity}</p>
+                <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Group Size</p>
+              </RevealItem>
+              <RevealItem className="text-center">
+                <MapPin className="mx-auto size-5 text-primary sm:hidden" />
+                <p className="mt-1 text-2xl font-bold text-primary sm:mt-0 sm:text-3xl">{departs}</p>
+                <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">Departure</p>
+              </RevealItem>
+            </RevealGroup>
+          </div>
+        </section>
 
         <section className="container-px mx-auto max-w-6xl py-20 sm:py-24">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">

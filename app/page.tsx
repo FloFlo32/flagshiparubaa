@@ -5,9 +5,9 @@ import { VideoHighlights } from "@/components/sections/video-highlights";
 import { GuestGallery } from "@/components/sections/guest-gallery";
 import { Testimonial } from "@/components/sections/testimonial";
 import { Features } from "@/components/sections/features";
-import { Partners } from "@/components/sections/partners";
 import { BlogTeasers } from "@/components/sections/blog-teasers";
 import { FaqPreview } from "@/components/sections/faq-preview";
+import { GroupsAndEvents } from "@/components/sections/groups-and-events";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
 
@@ -22,9 +22,9 @@ export default function Home() {
         <GuestGallery />
         <Testimonial />
         <Features />
-        <Partners />
         <BlogTeasers />
         <FaqPreview />
+        <GroupsAndEvents />
         <CTA />
       </main>
       <Footer />

@@ -167,7 +167,7 @@ export const blogPosts: BlogPost[] = [
     category: "Planning",
     excerpt:
       "Renaissance Island is private property. Here's the only way in, what it costs, and a few good alternatives for seeing wildlife.",
-    image: "/ingested/flagshiparubaa/tall-ship-horizon.webp",
+    image: "/ingested/flagshiparubaa/malmok-beach.webp",
     readTime: "5 min read",
     intro:
       "The only way to reach Renaissance Island is the resort's private water taxi, reserved for Renaissance guests and a limited number of day pass holders. There's no public dock, ferry, or walking path onto the island.",

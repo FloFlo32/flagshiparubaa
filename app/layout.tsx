@@ -57,6 +57,16 @@ window.YettiBooking={open:openModal};
 })();
 `;
 
+// Google page-translate: the LanguageSwitcher sets a `googtrans` cookie and
+// reloads; this script reads that cookie and renders the page in that
+// language. autoDisplay is off and the default banner/toolbar is hidden via
+// CSS below, since the switcher is the only UI for it.
+const GOOGLE_TRANSLATE_INIT = `
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+}
+`;
+
 const siteUrl = `https://${brand.domain}`;
 
 export const metadata: Metadata = {
@@ -97,6 +107,13 @@ export default function RootLayout({
         <FaqWidget />
         <WhatsAppWidget />
         <Script id="yetti-booking" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: YETTI_BOOKING_SCRIPT }} />
+        <div id="google_translate_element" className="hidden" aria-hidden />
+        <Script id="google-translate-init" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: GOOGLE_TRANSLATE_INIT }} />
+        <Script
+          id="google-translate-loader"
+          strategy="afterInteractive"
+          src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Sailboat } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookButton } from "@/components/ui/book-button";
 import { LanguageSwitcher } from "@/components/sections/language-switcher";
@@ -24,19 +24,14 @@ const linksBeforeSites = [{ href: "/about-us", label: "About Us" }];
 const linksAfterSites = [
   { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
 ];
 
 function NavDropdown({
   label,
   items,
-  allHref,
-  allLabel,
 }: {
   label: string;
   items: { href: string; label: string }[];
-  allHref: string;
-  allLabel: string;
 }) {
   const [open, setOpen] = React.useState(false);
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -95,14 +90,6 @@ function NavDropdown({
               {item.label}
             </Link>
           ))}
-          <div className="my-1 border-t border-border" />
-          <Link
-            href={allHref}
-            onClick={() => setOpen(false)}
-            className="block cursor-pointer rounded-lg px-3 py-2.5 text-sm font-medium text-primary transition-colors hover:bg-accent"
-          >
-            {allLabel}
-          </Link>
         </div>
       </div>
     </div>
@@ -115,7 +102,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-primary shadow-sm">
       <nav className="container-px mx-auto flex h-20 max-w-6xl items-center justify-between">
-        <Link href="/" className="flex shrink-0 items-center" aria-label="Flagship Aruba home">
+        <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Flagship Aruba home">
+          <Sailboat className="size-8 shrink-0 text-primary-foreground" strokeWidth={1.75} />
           <Image src="/logo.webp" alt="Flagship Aruba" width={168} height={67} priority className="h-12 w-auto" />
         </Link>
 
@@ -127,7 +115,7 @@ export function Navbar() {
             Home
           </Link>
 
-          <NavDropdown label="Boat Tours" items={tours} allHref="/boat-tours" allLabel="All Boat Tours" />
+          <NavDropdown label="Boat Tours" items={tours} />
 
           {linksBeforeSites.map((l) => (
             <Link
@@ -139,12 +127,7 @@ export function Navbar() {
             </Link>
           ))}
 
-          <NavDropdown
-            label="Our Snorkel Sites"
-            items={sites}
-            allHref="/flagship-aruba-snorkel-sites"
-            allLabel="All Snorkel Sites"
-          />
+          <NavDropdown label="Our Snorkel Sites" items={sites} />
 
           {linksAfterSites.map((l) => (
             <Link
@@ -180,9 +163,7 @@ export function Navbar() {
             <Link href="/" onClick={() => setOpen(false)} className="rounded-md px-3 py-2.5 text-sm font-medium text-primary-foreground/90 hover:bg-primary-foreground/10">
               Home
             </Link>
-            <Link href="/boat-tours" onClick={() => setOpen(false)} className="rounded-md px-3 py-2.5 text-sm font-medium text-primary-foreground/90 hover:bg-primary-foreground/10">
-              Boat Tours
-            </Link>
+            <span className="px-3 py-2.5 text-sm font-medium text-primary-foreground/60">Boat Tours</span>
             {tours.map((t) => (
               <Link
                 key={t.href}
@@ -203,13 +184,7 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <Link
-              href="/flagship-aruba-snorkel-sites"
-              onClick={() => setOpen(false)}
-              className="rounded-md px-3 py-2.5 text-sm font-medium text-primary-foreground/90 hover:bg-primary-foreground/10"
-            >
-              Our Snorkel Sites
-            </Link>
+            <span className="px-3 py-2.5 text-sm font-medium text-primary-foreground/60">Our Snorkel Sites</span>
             {sites.map((s) => (
               <Link
                 key={s.href}

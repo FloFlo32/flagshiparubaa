@@ -101,14 +101,12 @@ export function VideoHighlights() {
         <Reveal delay={0.06} className="mt-10">
           <div className="overflow-hidden rounded-3xl border border-border bg-card">
             <div className="relative aspect-video bg-muted">
-              <video
-                src="/ingested/flagshiparubaa/video/vid-01-featured.mp4"
-                poster="/ingested/flagshiparubaa/video/vid-01-poster.webp"
-                autoPlay
-                loop
-                muted
-                playsInline
-                controls
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/ingested/flagshiparubaa/video/vid-01.gif"
+                alt="Guests geared up and ready to jump in off the schooner"
+                loading="lazy"
+                decoding="async"
                 className="size-full object-cover"
               />
             </div>

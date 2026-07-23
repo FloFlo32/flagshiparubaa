@@ -5,17 +5,45 @@ import { Globe, ChevronDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const languages = [
-  { code: "EN", label: "English" },
-  { code: "NL", label: "Nederlands" },
-  { code: "ES", label: "Español" },
-  { code: "DE", label: "Deutsch" },
-  { code: "PT", label: "Português" },
+  { code: "EN", googleCode: "en", label: "English" },
+  { code: "NL", googleCode: "nl", label: "Nederlands" },
+  { code: "ES", googleCode: "es", label: "Español" },
+  { code: "DE", googleCode: "de", label: "Deutsch" },
+  { code: "PT", googleCode: "pt", label: "Português" },
 ];
+
+/**
+ * Reads/writes the `googtrans` cookie Google's page-translate service checks,
+ * then reloads so the whole page renders in the picked language (or back to
+ * the original English markup when switching to EN).
+ */
+function setTranslation(googleCode: string) {
+  const domain = window.location.hostname;
+  if (googleCode === "en") {
+    document.cookie = `googtrans=; domain=${domain}; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
+    document.cookie = "googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+  } else {
+    const value = `/en/${googleCode}`;
+    document.cookie = `googtrans=${value}; domain=${domain}; path=/`;
+    document.cookie = `googtrans=${value}; path=/`;
+  }
+  window.location.reload();
+}
+
+function readCurrentLanguage() {
+  const match = document.cookie.match(/googtrans=\/en\/(\w+)/);
+  const googleCode = match?.[1];
+  return languages.find((l) => l.googleCode === googleCode) ?? languages[0];
+}
 
 export function LanguageSwitcher({ className, align = "right" }: { className?: string; align?: "left" | "right" }) {
   const [open, setOpen] = React.useState(false);
   const [current, setCurrent] = React.useState(languages[0]);
   const ref = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    setCurrent(readCurrentLanguage());
+  }, []);
 
   React.useEffect(() => {
     if (!open) return;
@@ -64,8 +92,8 @@ export function LanguageSwitcher({ className, align = "right" }: { className?: s
               key={l.code}
               type="button"
               onClick={() => {
-                setCurrent(l);
                 setOpen(false);
+                if (l.code !== current.code) setTranslation(l.googleCode);
               }}
               className="flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm text-foreground transition-colors hover:bg-accent"
             >

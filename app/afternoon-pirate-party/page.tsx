@@ -14,10 +14,14 @@ export default function AfternoonPiratePartyPage() {
       title="A Midday Escape Full of Fun"
       heroDescription="Join a lively midday tour with music, rope swinging, premium snorkel spots, and an open bar. Great for thrill-seekers who love fun, sun, and a bit of pirate mischief."
       heroImage={{
-        src: "/ingested/flagshiparubaa/tall-ship-horizon.webp",
-        alt: "A tall ship sailing on the open water off Aruba",
+        src: "/ingested/flagshiparubaa/guest-e.webp",
+        alt: "A big group of guests cheering aboard the schooner during the Afternoon Pirate Party",
       }}
       activityId="47611e71-4496-4915-99ef-816cb4ec6fe2"
+      price="$79"
+      duration="3 hours"
+      departs="1:00 PM"
+      capacity="Up to 40"
       whatToExpect={[
         "Music and a festive atmosphere from the moment you board",
         "The rope-swing finale, a guest favorite",
@@ -27,8 +31,8 @@ export default function AfternoonPiratePartyPage() {
       sectionTitle="A Midday Escape Full of Fun"
       sectionBody="This is the cruise for guests who want a bit of pirate mischief with their snorkeling. Expect music on deck, a crew that keeps the energy up, and a rope swing that turns into the highlight of everyone's trip."
       sectionImage={{
-        src: "/ingested/flagshiparubaa/crew-member-smiling.webp",
-        alt: "A Flagship Aruba crew member in high spirits aboard the schooner",
+        src: "/ingested/flagshiparubaa/guest-d.webp",
+        alt: "Guests sharing shots at the boat's bar during the Afternoon Pirate Party",
       }}
       goodToKnow={[
         "Departs from the pier in front of MooMba Beach Bar, Palm Beach",

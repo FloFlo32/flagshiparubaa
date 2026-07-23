@@ -19,6 +19,10 @@ export default function SunsetStarsCruisePage() {
       }}
       heroImagePosition="object-bottom"
       activityId="8ff35752-c22a-41f6-b142-4679aa1d1fb4"
+      price="$89"
+      duration="2.5 hours"
+      departs="At sunset"
+      capacity="Up to 40"
       whatToExpect={[
         "An evening sail timed to Aruba's famous sunset",
         "Local bites and drinks served on deck",

@@ -12,7 +12,7 @@ export function FaqPreview() {
         <h2 className="mt-3 text-balance text-4xl font-bold sm:text-5xl">Good to know before you book</h2>
       </Reveal>
       <Reveal delay={0.08} className="mt-10">
-        <Accordion items={faqs} />
+        <Accordion items={faqs.slice(0, 4)} />
       </Reveal>
       <Reveal delay={0.12} className="mt-8 text-center">
         <Link
