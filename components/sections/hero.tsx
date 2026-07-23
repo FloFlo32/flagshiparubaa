@@ -4,26 +4,26 @@ import { HeroSlideshow } from "@/components/magic/hero-slideshow";
 import { BookButton } from "@/components/ui/book-button";
 
 const slides = [
+  { src: "/ingested/flagshiparubaa/guest-e.webp", alt: "A big group of guests cheering aboard the schooner" },
   { src: "/ingested/flagshiparubaa/aerial-yacht-reef.webp", alt: "Aerial view of our schooner anchored over a reef" },
-  { src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp", alt: "Our schooner drifting over turquoise Aruba waters" },
+  { src: "/ingested/flagshiparubaa/guest-b.webp", alt: "Guests in snorkel gear and life vests, ready to jump in" },
   { src: "/ingested/flagshiparubaa/schooner-turquoise-anchor.webp", alt: "Flagship Aruba schooner anchored in the shallows" },
-  { src: "/ingested/flagshiparubaa/afternoon-pirate-party.webp", alt: "Our pirate-style ship sailing along the Aruba coastline" },
+  { src: "/ingested/flagshiparubaa/guest-a.webp", alt: "Guests toasting with drinks aboard the schooner" },
   { src: "/ingested/flagshiparubaa/malmok-beach.webp", alt: "Sailboats off Malmok Beach, Aruba" },
+  { src: "/ingested/flagshiparubaa/guest-h.webp", alt: "Guests relaxing in the bow net over turquoise water" },
+  { src: "/ingested/flagshiparubaa/boat-aerial-turquoise.webp", alt: "Our schooner drifting over turquoise Aruba waters" },
+  { src: "/ingested/flagshiparubaa/guest-onboard-drink.webp", alt: "A guest enjoying a drink aboard the schooner" },
+  { src: "/ingested/flagshiparubaa/afternoon-pirate-party.webp", alt: "Our pirate-style ship sailing along the Aruba coastline" },
+  { src: "/ingested/flagshiparubaa/guest-f.webp", alt: "Guests in swimsuits posing together on deck" },
   { src: "/ingested/flagshiparubaa/snorkel-sea-turtle.webp", alt: "A sea turtle in the clear waters off Aruba" },
+  { src: "/ingested/flagshiparubaa/guest-d.webp", alt: "Guests sharing shots at the boat's bar" },
   { src: "/ingested/flagshiparubaa/ss-antilla-wreck-aerial.webp", alt: "Aerial view of the SS Antilla shipwreck" },
-  { src: "/ingested/flagshiparubaa/guest-beach-dusk.webp", alt: "A guest watching the waves at dusk" },
+  { src: "/ingested/flagshiparubaa/guest-g.webp", alt: "Guests celebrating together at sunset on the boat" },
   { src: "/ingested/flagshiparubaa/coastline-cliff-sunset.webp", alt: "Our schooner sailing past Aruba's rocky coastline at sunset" },
+  { src: "/ingested/flagshiparubaa/guest-c.webp", alt: "A family snorkeling together with the schooner in the background" },
   { src: "/ingested/flagshiparubaa/schooner-sunset-guests.webp", alt: "Guests aboard our schooner at sunset" },
   { src: "/ingested/flagshiparubaa/schooner-pink-sunset.webp", alt: "Our schooner silhouetted against a pink sunset sky" },
   { src: "/ingested/flagshiparubaa/sunset-bird-silhouette.webp", alt: "A frigate bird gliding over the ocean at sunset" },
-  { src: "/ingested/flagshiparubaa/guest-a.webp", alt: "Guests toasting with drinks aboard the schooner" },
-  { src: "/ingested/flagshiparubaa/guest-b.webp", alt: "Guests in snorkel gear and life vests, ready to jump in" },
-  { src: "/ingested/flagshiparubaa/guest-c.webp", alt: "A family snorkeling together with the schooner in the background" },
-  { src: "/ingested/flagshiparubaa/guest-d.webp", alt: "Guests sharing shots at the boat's bar" },
-  { src: "/ingested/flagshiparubaa/guest-e.webp", alt: "A big group of guests cheering aboard the schooner" },
-  { src: "/ingested/flagshiparubaa/guest-f.webp", alt: "Guests in swimsuits posing together on deck" },
-  { src: "/ingested/flagshiparubaa/guest-g.webp", alt: "Guests celebrating together at sunset on the boat" },
-  { src: "/ingested/flagshiparubaa/guest-h.webp", alt: "Guests relaxing in the bow net over turquoise water" },
 ];
 
 export function Hero() {
