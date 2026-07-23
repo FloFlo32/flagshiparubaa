@@ -31,6 +31,12 @@ function setTranslation(googleCode: string) {
     const value = `/en/${googleCode}`;
     document.cookie = `googtrans=${value}; domain=${domain}; path=/`;
     document.cookie = `googtrans=${value}; path=/`;
+    // Google's translate call is async and finishes well after the reload
+    // paints; TranslationLoader reads this flag to show visible progress
+    // instead of the switch looking stuck.
+    sessionStorage.setItem("flagship-lang-switching", "1");
+  } else {
+    sessionStorage.removeItem("flagship-lang-switching");
   }
   window.location.href = window.location.href;
 }

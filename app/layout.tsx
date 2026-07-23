@@ -6,6 +6,7 @@ import { fontVariables } from "@/lib/fonts";
 import { ThemeScript } from "@/components/theme-provider";
 import { FaqWidget } from "@/components/widget/faq-widget";
 import { WhatsAppWidget } from "@/components/widget/whatsapp-widget";
+import { TranslationLoader } from "@/components/widget/translation-loader";
 
 // Yetti booking widget: opens a modal for any [data-yetti-activity] button or
 // any link with ?yetti-modal=true. Mounted once, globally, via next/script.
@@ -106,8 +107,9 @@ export default function RootLayout({
         {children}
         <FaqWidget />
         <WhatsAppWidget />
+        <TranslationLoader />
         <Script id="yetti-booking" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: YETTI_BOOKING_SCRIPT }} />
-        <div id="google_translate_element" className="hidden" aria-hidden />
+        <div id="google_translate_element" aria-hidden />
         <Script id="google-translate-init" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: GOOGLE_TRANSLATE_INIT }} />
         <Script
           id="google-translate-loader"

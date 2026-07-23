@@ -209,7 +209,11 @@
 }
 
 /* Google page-translate (see LanguageSwitcher): hide its banner/toolbar and
-   the top offset it injects on <body>, since our own switcher is the only UI. */
+   the top offset it injects on <body>, since our own switcher is the only UI.
+   The #google_translate_element container is moved off-screen, NOT
+   display:none — Google's script needs to actually render its combo box into
+   that node to initialize; display:none on the container itself can stop the
+   widget from wiring up at all. */
 .goog-te-banner-frame,
 .skiptranslate > iframe {
   display: none !important;
@@ -218,7 +222,12 @@ body {
   top: 0 !important;
 }
 #google_translate_element {
-  display: none !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
 }
 
 /* Gradient text — allowed and encouraged here. Use to punctuate, not everywhere. */
