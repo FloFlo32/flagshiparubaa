@@ -43,19 +43,13 @@ function NavDropdown({
   active: boolean;
 }) {
   const [open, setOpen] = React.useState(false);
-  const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const ref = React.useRef<HTMLDivElement>(null);
 
-  const openMenu = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setOpen(true);
-  };
-  const scheduleClose = () => {
-    closeTimer.current = setTimeout(() => setOpen(false), 250);
-  };
-
-  // Click-to-toggle + click-outside/Escape-to-close, so the dropdown works
-  // reliably on touch devices (not just mouse hover).
+  // Click-to-toggle + click-outside/Escape-to-close only — no hover-to-open.
+  // Hovering is a prerequisite to clicking with a mouse, so a hover-opens
+  // handler here would race the click's toggle: mouse enters → hover opens
+  // it, then the click fires and immediately toggles it back closed. Click
+  // alone works identically for mouse and touch.
   React.useEffect(() => {
     if (!open) return;
     const onClickOutside = (e: MouseEvent) => {
@@ -73,7 +67,7 @@ function NavDropdown({
   }, [open]);
 
   return (
-    <div ref={ref} className="relative" onMouseEnter={openMenu} onMouseLeave={scheduleClose}>
+    <div ref={ref} className="relative">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
