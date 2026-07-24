@@ -36,10 +36,16 @@ function cookieScopes(): (string | undefined)[] {
 
 /**
  * Reads/writes the `googtrans` cookie Google's page-translate service checks,
- * then hard-navigates so the whole page re-renders in the picked language (or
- * back to the original English markup when switching to EN). A plain
- * location.href reload (not router.refresh) is required here: Google's
- * translate script only re-scans the DOM on a fresh document load.
+ * then hard-reloads so the whole page re-renders in the picked language (or
+ * back to the original English markup when switching to EN). A real reload
+ * (not router.refresh) is required here: Google's translate script only
+ * re-scans the DOM on a fresh document load. Uses location.reload(), not
+ * `location.href = location.href` — reassigning href to the page's own
+ * current URL is a known cross-browser inconsistency (some browsers don't
+ * reliably treat a same-URL assignment as a real navigation), which was
+ * reported as "switching back to English doesn't work" while switching to
+ * another language worked fine — reload() is the unambiguous, purpose-built
+ * API for this and doesn't have that ambiguity.
  */
 function setTranslation(googleCode: string) {
   for (const scope of cookieScopes()) {
@@ -59,7 +65,7 @@ function setTranslation(googleCode: string) {
   } else {
     sessionStorage.removeItem("flagship-lang-switching");
   }
-  window.location.href = window.location.href;
+  window.location.reload();
 }
 
 function readCurrentLanguage() {
