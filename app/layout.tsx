@@ -14,7 +14,7 @@ import { TranslateScripts } from "@/components/widget/translate-scripts";
 const YETTI_BOOKING_SCRIPT = `
 (function(){
 'use strict';
-var WIDGET_URL='https://yetti.ai/widget/wk_sOvB-aQO0C6HwJgPfDybdg0irlC0_Jg5';
+var WIDGET_URL='https://yetti.ai/widget/wk_teVJTzgRRrGsQLTzyceJUYzfeijrqA0n';
 function _ybStyle(){
 if(document.getElementById('_yb_s'))return;
 var s=document.createElement('style');s.id='_yb_s';
