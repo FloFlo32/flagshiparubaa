@@ -5,6 +5,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
+import { AutoSlider } from "@/components/magic/auto-slider";
 import { getGoodToKnowIcon } from "@/lib/good-to-know-icon";
 import type { SnorkelSite } from "@/lib/snorkel-sites";
 
@@ -15,6 +16,14 @@ const statIcons: Record<string, LucideIcon> = {
   Depth: ArrowDownToLine,
   Length: Ruler,
 };
+
+const funPhotos = [
+  { src: "/ingested/flagshiparubaa/guest-b.webp", alt: "Guests in snorkel gear and life vests, ready to jump in" },
+  { src: "/ingested/flagshiparubaa/guest-h.webp", alt: "Guests relaxing in the bow net over the turquoise water" },
+  { src: "/ingested/flagshiparubaa/guest-beach-dusk.webp", alt: "A guest enjoying the water at dusk after a day of snorkeling" },
+  { src: "/ingested/flagshiparubaa/snorkel-sea-turtle.webp", alt: "A sea turtle swimming near one of Aruba's snorkel sites" },
+  { src: "/ingested/flagshiparubaa/guest-onboard-drink.webp", alt: "A guest relaxing with a drink in hand aboard the schooner" },
+];
 
 export function SiteDetail({ site }: { site: SnorkelSite }) {
   return (
@@ -82,6 +91,31 @@ export function SiteDetail({ site }: { site: SnorkelSite }) {
                 ))}
               </RevealGroup>
             </div>
+          </div>
+        </section>
+
+        <section className="py-20 sm:py-24">
+          <div className="container-px mx-auto max-w-6xl">
+            <Reveal className="mx-auto max-w-xl text-center">
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Good Times Aboard</span>
+              <h2 className="mt-3 text-balance text-3xl font-bold sm:text-4xl">Guests having the time of their life</h2>
+            </Reveal>
+            <Reveal delay={0.08} className="mt-10">
+              <AutoSlider itemClassName="w-[74%] sm:w-[42%] lg:w-[24%]">
+                {funPhotos.map((p) => (
+                  <div key={p.src} className="overflow-hidden rounded-2xl border border-border bg-muted">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={p.src}
+                      alt={p.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[3/4] w-full object-cover"
+                    />
+                  </div>
+                ))}
+              </AutoSlider>
+            </Reveal>
           </div>
         </section>
 

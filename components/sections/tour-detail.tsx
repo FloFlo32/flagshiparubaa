@@ -5,7 +5,17 @@ import { PageHero } from "@/components/sections/page-hero";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
+import { AutoSlider } from "@/components/magic/auto-slider";
 import { getGoodToKnowIcon } from "@/lib/good-to-know-icon";
+
+const funPhotos = [
+  { src: "/ingested/flagshiparubaa/guest-a.webp", alt: "Guests laughing together on deck during a Flagship Aruba cruise" },
+  { src: "/ingested/flagshiparubaa/guest-d.webp", alt: "A group of guests enjoying drinks and sunshine aboard the schooner" },
+  { src: "/ingested/flagshiparubaa/guest-onboard-drink.webp", alt: "A guest relaxing with a drink in hand aboard the schooner" },
+  { src: "/ingested/flagshiparubaa/crew-member-smiling.webp", alt: "A friendly Flagship Aruba crew member smiling on deck" },
+  { src: "/ingested/flagshiparubaa/guest-f.webp", alt: "Guests soaking up the sun during a Flagship Aruba cruise" },
+  { src: "/ingested/flagshiparubaa/guest-g.webp", alt: "Guests celebrating together aboard the schooner" },
+];
 
 export function TourDetail({
   eyebrow,
@@ -105,6 +115,31 @@ export function TourDetail({
                 ))}
               </RevealGroup>
             </div>
+          </div>
+        </section>
+
+        <section className="py-20 sm:py-24">
+          <div className="container-px mx-auto max-w-6xl">
+            <Reveal className="mx-auto max-w-xl text-center">
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Good Times Aboard</span>
+              <h2 className="mt-3 text-balance text-3xl font-bold sm:text-4xl">Guests having the time of their life</h2>
+            </Reveal>
+            <Reveal delay={0.08} className="mt-10">
+              <AutoSlider itemClassName="w-[74%] sm:w-[42%] lg:w-[24%]">
+                {funPhotos.map((p) => (
+                  <div key={p.src} className="overflow-hidden rounded-2xl border border-border bg-muted">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={p.src}
+                      alt={p.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[3/4] w-full object-cover"
+                    />
+                  </div>
+                ))}
+              </AutoSlider>
+            </Reveal>
           </div>
         </section>
 

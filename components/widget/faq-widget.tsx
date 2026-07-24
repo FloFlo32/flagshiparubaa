@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { MessageCircle, X, Send, Sparkles } from "lucide-react";
+import { X, Send, Sparkles } from "lucide-react";
 import { brand } from "@/brand.config";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -75,11 +75,19 @@ export function FaqWidget() {
         aria-label={open ? "Close assistant" : "Open FAQ assistant"}
         aria-expanded={open}
         className={cn(
-          "fixed bottom-5 right-5 z-50 grid size-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition-transform duration-200 hover:scale-105 active:scale-95 motion-reduce:transition-none",
+          "fixed bottom-5 right-5 z-50 grid size-14 place-items-center rounded-full bg-ocean text-ocean-foreground shadow-lg shadow-ocean/30 transition-transform duration-200 hover:scale-105 active:scale-95 motion-reduce:transition-none",
           open && "rotate-90"
         )}
       >
-        {open ? <X className="size-6" /> : <MessageCircle className="size-6" />}
+        {open ? <X className="size-6" /> : <Sparkles className="size-6" />}
+        {!open && (
+          <span
+            aria-hidden
+            className="absolute -right-0.5 -top-0.5 grid size-4 place-items-center rounded-full bg-emerald-400 ring-2 ring-background"
+          >
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75 motion-reduce:animate-none" />
+          </span>
+        )}
       </button>
 
       {/* Panel */}
@@ -88,7 +96,7 @@ export function FaqWidget() {
         aria-label={`${brand.name} assistant`}
         aria-hidden={!open}
         className={cn(
-          "fixed bottom-24 right-5 z-50 flex w-[min(24rem,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-2xl border border-border bg-popover text-popover-foreground shadow-2xl shadow-primary/10 transition-all duration-200 motion-reduce:transition-none",
+          "fixed bottom-44 right-5 z-50 flex w-[min(24rem,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-2xl border border-border bg-popover text-popover-foreground shadow-2xl shadow-primary/10 transition-all duration-200 motion-reduce:transition-none",
           open
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none translate-y-3 opacity-0"
@@ -96,7 +104,7 @@ export function FaqWidget() {
         style={{ maxHeight: "min(32rem, calc(100vh - 8rem))" }}
       >
         <header className="flex items-center gap-2.5 border-b border-border px-4 py-3">
-          <span className="grid size-8 place-items-center rounded-lg bg-primary/10 text-primary">
+          <span className="grid size-8 place-items-center rounded-lg bg-ocean/10 text-ocean">
             <Sparkles className="size-4" />
           </span>
           <div className="leading-tight">
