@@ -26,18 +26,23 @@ function CtaButton({ cta, className }: { cta?: Cta; className: string }) {
   );
 }
 
+// Ocean accent for the CTA — a dark-navy hero can't use bg-primary for its
+// button (it would vanish against the section's own navy background).
 const ctaClass =
-  "inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm shadow-primary/25 transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]";
+  "inline-flex cursor-pointer items-center gap-2 rounded-full bg-ocean px-6 py-3 text-sm font-semibold text-ocean-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]";
 
 /**
- * PageHero — the shared hero for every inner page.
+ * PageHero — the shared hero for every inner page (every page except Home,
+ * which uses its own full-bleed photo Hero). Solid dark-navy surface with
+ * cream text throughout, so it's a clear, deliberate departure from Home's
+ * bright photo hero rather than a variation on it.
  *
- * With `image`: split layout, heading + copy on a solid surface, real photo in
- * a rounded card beside it. Never text over the image (see CLAUDE.md §0).
+ * With `image`: split layout, heading + copy on the navy surface, real photo
+ * in a rounded card beside it. Never text over the image (see CLAUDE.md §0).
  *
  * Without `image` (pages with no dedicated real photo left to assign, to keep
- * every image on the site unique): a centered, brand-toned hero with a soft
- * aurora glow + grid pattern instead of a photo.
+ * every image on the site unique): a centered navy hero with a soft aurora
+ * glow + grid pattern instead of a photo.
  *
  * cta: pass `href` for an internal link, or `activityId` for a booking action
  * (defaults to the general Book Now when cta is omitted, empty activity id).
@@ -59,14 +64,14 @@ export function PageHero({
 }) {
   if (!image) {
     return (
-      <section className="relative overflow-hidden border-b border-border bg-hero-gradient">
+      <section className="relative overflow-hidden bg-primary">
         <AuroraBackground />
         <GridPattern />
         <div className="container-px relative mx-auto max-w-3xl py-20 text-center sm:py-24">
           <Reveal>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{eyebrow}</span>
-            <h1 className="mt-4 text-balance text-4xl font-bold leading-[1.08] sm:text-5xl">{title}</h1>
-            <p className="mx-auto mt-5 max-w-xl text-pretty text-lg text-muted-foreground">{description}</p>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">{eyebrow}</span>
+            <h1 className="mt-4 text-balance text-4xl font-bold leading-[1.08] text-primary-foreground sm:text-5xl">{title}</h1>
+            <p className="mx-auto mt-5 max-w-xl text-pretty text-lg text-primary-foreground/75">{description}</p>
             <div className="mt-8 flex justify-center">
               <CtaButton cta={cta} className={ctaClass} />
             </div>
@@ -77,20 +82,20 @@ export function PageHero({
   }
 
   return (
-    <section className="relative overflow-hidden border-b border-border bg-hero-gradient">
+    <section className="relative overflow-hidden bg-primary">
       <GridPattern />
       <div className="container-px relative mx-auto grid max-w-6xl items-center gap-10 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{eyebrow}</span>
-          <h1 className="mt-4 text-balance text-4xl font-bold leading-[1.08] sm:text-5xl">{title}</h1>
-          <p className="mt-5 max-w-lg text-pretty text-lg text-muted-foreground">{description}</p>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">{eyebrow}</span>
+          <h1 className="mt-4 text-balance text-4xl font-bold leading-[1.08] text-primary-foreground sm:text-5xl">{title}</h1>
+          <p className="mt-5 max-w-lg text-pretty text-lg text-primary-foreground/75">{description}</p>
           <div className="mt-8">
             <CtaButton cta={cta} className={ctaClass} />
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="overflow-hidden rounded-3xl border border-border shadow-xl shadow-primary/5">
+          <div className="overflow-hidden rounded-3xl border border-primary-foreground/15 shadow-xl shadow-black/20">
             <Image
               src={image.src}
               alt={image.alt}
