@@ -34,21 +34,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <>
       <Navbar />
       <main className="flex-1">
-        <section className="relative overflow-hidden border-b border-border bg-hero-gradient py-14 sm:py-16">
+        <section className="relative overflow-hidden bg-primary py-14 sm:py-16">
           <GridPattern />
           <div className="container-px relative mx-auto max-w-3xl">
             <Reveal>
               <Link
                 href="/blog"
-                className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                className="inline-flex cursor-pointer items-center gap-1.5 text-sm font-medium text-primary-foreground/70 transition-colors hover:text-primary-foreground"
               >
                 <ArrowLeft className="size-3.5" /> Back to Blog
               </Link>
-              <span className="mt-5 block text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              <span className="mt-5 block text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">
                 {post.category}
               </span>
-              <h1 className="mt-3 text-balance text-3xl font-bold leading-[1.12] sm:text-5xl">{post.title}</h1>
-              <div className="mt-4 flex items-center gap-1.5 text-sm text-muted-foreground">
+              <h1 className="mt-3 text-balance text-3xl font-bold leading-[1.12] text-primary-foreground sm:text-5xl">{post.title}</h1>
+              <div className="mt-4 flex items-center gap-1.5 text-sm text-primary-foreground/70">
                 <Clock className="size-4" /> {post.readTime}
               </div>
             </Reveal>

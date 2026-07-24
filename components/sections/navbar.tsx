@@ -123,7 +123,7 @@ export function Navbar() {
       <div className="border-b border-border bg-card/95 backdrop-blur-sm">
         <nav className="container-px mx-auto flex h-20 max-w-6xl items-center justify-between gap-4">
           <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Flagship Aruba home">
-            <FlagshipMark className="size-8 shrink-0 text-primary" seam="var(--color-card)" />
+            <FlagshipMark className="h-8 w-auto shrink-0 text-primary" seam="var(--color-card)" />
             <Image src="/logo-dark.webp" alt="Flagship Aruba" width={168} height={67} priority className="h-11 w-auto" />
           </Link>
 

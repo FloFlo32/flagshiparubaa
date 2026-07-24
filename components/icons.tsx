@@ -32,31 +32,35 @@ export function XIcon({ className }: { className?: string }) {
 }
 
 /**
- * FlagshipMark — the brand's sailboat glyph, paired with the wordmark in the
+ * FlagshipMark — the brand's schooner glyph, paired with the wordmark in the
  * navbar and footer. A custom mark (not a lucide icon) since this is the
- * brand's logo, not a generic UI icon. Sits on a bg-primary surface: the
- * fill is currentColor (the surface's foreground token) and the mast seam
- * is drawn in var(--color-primary) so it reads as a cutout against the sail.
+ * brand's logo, not a generic UI icon. Matches the real Flagship Aruba mark
+ * (per its Instagram profile badge): a taller aft mainsail, a shorter
+ * forward jib overlapping in front of it, a forestay line running from the
+ * mainmast head down to the bow, and a single gentle wave beneath the hull.
+ * Fill is currentColor (adapts to the surface's foreground token); `seam`
+ * draws the boom hairline so it reads as a cutout against whatever surface
+ * the mark sits on.
  */
 export function FlagshipMark({ className, seam = "var(--color-primary)" }: { className?: string; seam?: string }) {
   return (
     <svg
-      viewBox="0 0 32 32"
+      viewBox="0 0 32 24"
       fill="none"
       aria-hidden
-      className={cn("size-8", className)}
+      className={cn("h-8 w-auto", className)}
     >
       <g fill="currentColor">
-        <path d="M16 4 L16 20 L26 20 Z" />
-        <path d="M16 7.5 L16 20 L9 20 Z" />
-        <path d="M6 20 L26 20 L23 25 Q16 28.5 9 25 Z" />
+        <path d="M13 3 L13 17 L21.5 17 Z" />
+        <path d="M19 7.5 L14.5 17 L26 17 Z" />
+        <path d="M4.5 17 L27 17 L29 16.2 L24.5 20.3 Q15 22.3 7.5 20.3 Z" />
       </g>
-      <line x1="16" y1="4" x2="16" y2="20" stroke={seam} strokeWidth="0.55" />
-      <circle cx="16" cy="3.5" r="0.85" fill="currentColor" />
+      <line x1="13" y1="3" x2="27.3" y2="16.6" stroke="currentColor" strokeWidth="0.4" />
+      <line x1="13" y1="16.9" x2="21.7" y2="16.9" stroke={seam} strokeWidth="0.3" />
       <path
-        d="M2 28.3 Q6 25.6 10 28.3 T18 28.3 T26 28.3 T30 28.3"
+        d="M3 20.8 Q16 18 30 20.8"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="0.9"
         strokeLinecap="round"
       />
     </svg>
