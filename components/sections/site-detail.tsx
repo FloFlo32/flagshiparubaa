@@ -1,11 +1,19 @@
 import Image from "next/image";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Eye, Waves, Users, ArrowDownToLine, Ruler, Sparkles, type LucideIcon } from "lucide-react";
 import { Navbar } from "@/components/sections/navbar";
 import { PageHero } from "@/components/sections/page-hero";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
 import type { SnorkelSite } from "@/lib/snorkel-sites";
+
+const statIcons: Record<string, LucideIcon> = {
+  Visibility: Eye,
+  Water: Waves,
+  "Best for": Users,
+  Depth: ArrowDownToLine,
+  Length: Ruler,
+};
 
 export function SiteDetail({ site }: { site: SnorkelSite }) {
   return (
@@ -21,17 +29,26 @@ export function SiteDetail({ site }: { site: SnorkelSite }) {
           cta={{ label: "Book Now" }}
         />
 
-        <section className="border-b border-border bg-card py-8">
+        <section className="py-16 sm:py-20">
           <div className="container-px mx-auto max-w-6xl">
-            <RevealGroup className="grid grid-cols-3 gap-4 sm:gap-8">
-              {site.stats.map((s) => (
-                <RevealItem key={s.label} className="text-center">
-                  <p className="text-2xl font-bold text-primary sm:text-3xl">{s.value}</p>
-                  <p className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
-                    {s.label}
-                  </p>
-                </RevealItem>
-              ))}
+            <RevealGroup className="grid gap-5 sm:grid-cols-3">
+              {site.stats.map((s) => {
+                const Icon = statIcons[s.label] ?? Sparkles;
+                return (
+                  <RevealItem
+                    key={s.label}
+                    className="rounded-2xl border-t-4 border-ocean bg-primary p-7 text-center shadow-lg shadow-primary/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    <span className="mx-auto grid size-12 place-items-center rounded-full bg-ocean/15 text-ocean">
+                      <Icon className="size-6" />
+                    </span>
+                    <p className="mt-4 text-2xl font-bold text-primary-foreground sm:text-3xl">{s.value}</p>
+                    <p className="mt-1 text-xs font-medium uppercase tracking-[0.16em] text-primary-foreground/65">
+                      {s.label}
+                    </p>
+                  </RevealItem>
+                );
+              })}
             </RevealGroup>
           </div>
         </section>
