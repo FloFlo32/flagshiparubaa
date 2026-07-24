@@ -4,13 +4,12 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Phone, MapPin } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookButton } from "@/components/ui/book-button";
 import { LanguageSwitcher } from "@/components/sections/language-switcher";
 import { FlagshipMark } from "@/components/icons";
 import { snorkelSites } from "@/lib/snorkel-sites";
-import { brand } from "@/brand.config";
 
 const tours = [
   { href: "/flagshiparuba-morning-snorkel-cruise", label: "Morning Splash Adventure" },
@@ -124,9 +123,6 @@ export function Navbar() {
           <span className="flex items-center gap-1.5">
             <MapPin className="size-3.5 text-ocean" /> Palm Beach, Aruba
           </span>
-          <a href={`tel:${brand.contact.phone.replace(/\s+/g, "")}`} className="flex cursor-pointer items-center gap-1.5 transition-colors hover:text-primary-foreground">
-            <Phone className="size-3.5 text-ocean" /> {brand.contact.phone}
-          </a>
         </div>
       </div>
 
@@ -161,12 +157,6 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-1">
-            <a
-              href={`tel:${brand.contact.phone.replace(/\s+/g, "")}`}
-              className="mr-1 hidden cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-ocean xl:inline-flex"
-            >
-              <Phone className="size-4 text-ocean" /> {brand.contact.phone}
-            </a>
             <LanguageSwitcher className="hidden lg:block" />
             <BookButton className="ml-1 hidden shrink-0 items-center whitespace-nowrap rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] sm:inline-flex">
               Book Now
@@ -245,12 +235,6 @@ export function Navbar() {
             <div className="flex items-center gap-1.5 px-3 py-2 text-xs text-muted-foreground">
               <MapPin className="size-3.5 text-ocean" /> Palm Beach, Aruba
             </div>
-            <a
-              href={`tel:${brand.contact.phone.replace(/\s+/g, "")}`}
-              className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium text-foreground/90 hover:bg-accent"
-            >
-              <Phone className="size-4 text-ocean" /> {brand.contact.phone}
-            </a>
             <div className="mt-2 border-t border-border pt-3">
               <LanguageSwitcher align="left" />
             </div>

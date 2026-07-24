@@ -14,6 +14,27 @@ const languages = [
 ];
 
 /**
+ * Every distinct cookie "scope" (domain attribute) worth writing to / clearing
+ * for this host: no domain attribute (host-only), the exact host, the exact
+ * host with a leading dot, and — critically — the registrable parent domain
+ * (e.g. ".getyetti.com" for "flagshiparubaa.getyetti.com"). Google's own
+ * translate widget sets `googtrans` at the parent-domain scope on its own
+ * initiative; clearing only the exact-host cookie left that wider one behind,
+ * so it kept forcing the page back to the last-picked language on every
+ * subsequent load no matter what the user picked next ("stuck on NL").
+ */
+function cookieScopes(): (string | undefined)[] {
+  const host = window.location.hostname;
+  const scopes: (string | undefined)[] = [undefined, host, `.${host}`];
+  const parts = host.split(".");
+  if (parts.length > 2) {
+    const parent = parts.slice(-2).join(".");
+    scopes.push(parent, `.${parent}`);
+  }
+  return scopes;
+}
+
+/**
  * Reads/writes the `googtrans` cookie Google's page-translate service checks,
  * then hard-navigates so the whole page re-renders in the picked language (or
  * back to the original English markup when switching to EN). A plain
@@ -21,16 +42,16 @@ const languages = [
  * translate script only re-scans the DOM on a fresh document load.
  */
 function setTranslation(googleCode: string) {
-  const domain = window.location.hostname;
-  const clear = (name: string) => {
-    document.cookie = `${name}=; domain=${domain}; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
-    document.cookie = `${name}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
-  };
-  clear("googtrans");
+  for (const scope of cookieScopes()) {
+    const domainAttr = scope ? `; domain=${scope}` : "";
+    document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC${domainAttr}`;
+  }
   if (googleCode !== "en") {
     const value = `/en/${googleCode}`;
-    document.cookie = `googtrans=${value}; domain=${domain}; path=/`;
-    document.cookie = `googtrans=${value}; path=/`;
+    for (const scope of cookieScopes()) {
+      const domainAttr = scope ? `; domain=${scope}` : "";
+      document.cookie = `googtrans=${value}; path=/${domainAttr}`;
+    }
     // Google's translate call is async and finishes well after the reload
     // paints; TranslationLoader reads this flag to show visible progress
     // instead of the switch looking stuck.
