@@ -5,6 +5,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
+import { getGoodToKnowIcon } from "@/lib/good-to-know-icon";
 
 export function TourDetail({
   eyebrow,
@@ -113,15 +114,21 @@ export function TourDetail({
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Good to know</span>
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Before you book</h2>
             </Reveal>
-            <RevealGroup className="mt-8 grid gap-3 sm:grid-cols-2">
-              {goodToKnow.map((g) => (
-                <RevealItem
-                  key={g}
-                  className="rounded-2xl border border-border bg-card p-5 text-sm text-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5"
-                >
-                  {g}
-                </RevealItem>
-              ))}
+            <RevealGroup className="mt-8 grid gap-4 sm:grid-cols-2">
+              {goodToKnow.map((g) => {
+                const Icon = getGoodToKnowIcon(g);
+                return (
+                  <RevealItem
+                    key={g}
+                    className="flex items-start gap-4 rounded-2xl border-t-4 border-ocean bg-primary p-5 shadow-lg shadow-primary/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-ocean/15 text-ocean">
+                      <Icon className="size-5" />
+                    </span>
+                    <p className="pt-1.5 text-sm text-primary-foreground/90">{g}</p>
+                  </RevealItem>
+                );
+              })}
             </RevealGroup>
           </div>
         </section>
