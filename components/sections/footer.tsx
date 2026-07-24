@@ -38,7 +38,7 @@ export function Footer() {
       <div className="container-px mx-auto grid max-w-6xl gap-10 py-14 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
           <Link href="/" className="flex items-center gap-2" aria-label="Flagship Aruba home">
-            <FlagshipMark className="size-8 shrink-0 text-primary-foreground" />
+            <FlagshipMark className="h-8 w-auto shrink-0 text-primary-foreground" />
             <Image src="/logo.webp" alt="Flagship Aruba" width={168} height={67} className="h-12 w-auto" />
           </Link>
           <p className="mt-4 max-w-xs text-sm text-primary-foreground/75">{brand.tagline}</p>
