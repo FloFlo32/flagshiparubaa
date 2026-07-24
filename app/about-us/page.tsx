@@ -7,6 +7,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
 import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
+import { FloatingBoats } from "@/components/magic/floating-boats";
 
 const vesselStats = [
   { icon: Users, label: "Up to 40 guests aboard" },
@@ -115,8 +116,9 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="bg-secondary/40 py-20 sm:py-24">
-          <div className="container-px mx-auto max-w-4xl text-center">
+        <section className="relative isolate overflow-hidden bg-secondary/40 py-20 sm:py-24">
+          <FloatingBoats />
+          <div className="container-px relative mx-auto max-w-4xl text-center">
             <Reveal>
               <p className="text-balance text-lg text-muted-foreground sm:text-xl">
                 We believe island sailing isn&apos;t just about where you go, it&apos;s about how you experience it.
@@ -175,8 +177,9 @@ export default function AboutUsPage() {
           </div>
         </section>
 
-        <section className="bg-secondary/40 py-20 sm:py-24">
-          <div className="container-px mx-auto max-w-6xl">
+        <section className="relative isolate overflow-hidden bg-secondary/40 py-20 sm:py-24">
+          <FloatingBoats />
+          <div className="container-px relative mx-auto max-w-6xl">
             <Reveal className="mx-auto max-w-xl text-center">
               <Eyebrow>What We Stand For</Eyebrow>
               <h2 className="mt-3 text-balance text-3xl font-bold sm:text-4xl">What sets our cruises apart</h2>

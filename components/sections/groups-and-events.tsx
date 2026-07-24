@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Users, PartyPopper, ArrowRight } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/magic/reveal";
+import { FloatingBoats } from "@/components/magic/floating-boats";
 import { BookButton } from "@/components/ui/book-button";
 import { cn } from "@/lib/utils";
 
@@ -21,8 +22,9 @@ const options = [
 
 export function GroupsAndEvents() {
   return (
-    <section className="bg-secondary/40 py-20 sm:py-24">
-      <div className="container-px mx-auto max-w-6xl">
+    <section className="relative isolate overflow-hidden bg-secondary/40 py-20 sm:py-24">
+      <FloatingBoats />
+      <div className="container-px relative mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Bigger Plans?</span>
           <h2 className="mt-3 text-balance text-4xl font-bold sm:text-5xl">Groups & Private Events</h2>

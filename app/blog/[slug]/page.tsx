@@ -34,8 +34,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <>
       <Navbar />
       <main className="flex-1">
-        <section className="relative overflow-hidden bg-primary py-14 sm:py-16">
-          <GridPattern />
+        <section className="relative isolate overflow-hidden bg-primary py-14 sm:py-16">
+          <GridPattern className="opacity-40" />
           <div className="container-px relative mx-auto max-w-3xl">
             <Reveal>
               <Link

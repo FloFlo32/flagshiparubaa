@@ -5,6 +5,7 @@ import { Reveal } from "@/components/magic/reveal";
 import { BookButton } from "@/components/ui/book-button";
 import { AuroraBackground } from "@/components/magic/aurora-background";
 import { GridPattern } from "@/components/magic/grid-pattern";
+import { FloatingBoats } from "@/components/magic/floating-boats";
 import { cn } from "@/lib/utils";
 
 type Cta = { label: string; href: string } | { label?: string; activityId?: string };
@@ -64,9 +65,10 @@ export function PageHero({
 }) {
   if (!image) {
     return (
-      <section className="relative overflow-hidden bg-primary">
-        <AuroraBackground />
-        <GridPattern />
+      <section className="relative isolate overflow-hidden bg-primary">
+        <AuroraBackground className="opacity-30" />
+        <GridPattern className="opacity-40" />
+        <FloatingBoats tone="text-primary-foreground" />
         <div className="container-px relative mx-auto max-w-3xl py-20 text-center sm:py-24">
           <Reveal>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">{eyebrow}</span>
@@ -82,8 +84,8 @@ export function PageHero({
   }
 
   return (
-    <section className="relative overflow-hidden bg-primary">
-      <GridPattern />
+    <section className="relative isolate overflow-hidden bg-primary">
+      <GridPattern className="opacity-40" />
       <div className="container-px relative mx-auto grid max-w-6xl items-center gap-10 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16">
         <Reveal>
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">{eyebrow}</span>

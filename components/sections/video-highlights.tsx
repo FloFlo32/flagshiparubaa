@@ -90,7 +90,7 @@ function VideoCard({ clip, index }: { clip: (typeof clips)[number]; index: numbe
 
 export function VideoHighlights() {
   return (
-    <section className="relative overflow-hidden bg-secondary/40 py-20 sm:py-24">
+    <section className="relative isolate overflow-hidden bg-secondary/40 py-20 sm:py-24">
       <AuroraBackground className="opacity-40" />
       <GridPattern />
       <div className="container-px relative mx-auto max-w-6xl">
