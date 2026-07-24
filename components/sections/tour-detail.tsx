@@ -86,7 +86,7 @@ export function TourDetail({
                   width={800}
                   height={800}
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  quality={78}
+                  quality={88}
                   className="aspect-square w-full object-cover"
                 />
               </div>

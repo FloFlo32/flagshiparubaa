@@ -13,7 +13,7 @@ export function Testimonial() {
               alt="Flagship Aruba's schooner anchored over crystal-clear turquoise water with snorkelers alongside"
               fill
               sizes="(max-width: 768px) 100vw, 45vw"
-              quality={78}
+              quality={88}
               className="object-cover"
             />
           </div>

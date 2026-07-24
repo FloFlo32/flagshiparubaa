@@ -3,7 +3,8 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu, X, ChevronDown, Phone, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BookButton } from "@/components/ui/book-button";
 import { LanguageSwitcher } from "@/components/sections/language-switcher";
@@ -28,12 +29,19 @@ const linksAfterSites = [
   { href: "/faq", label: "FAQ" },
 ];
 
+const pillLink =
+  "rounded-full px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap";
+const pillLinkInactive = "text-foreground/70 hover:text-primary";
+const pillLinkActive = "bg-primary text-primary-foreground shadow-sm";
+
 function NavDropdown({
   label,
   items,
+  active,
 }: {
   label: string;
   items: { href: string; label: string }[];
+  active: boolean;
 }) {
   const [open, setOpen] = React.useState(false);
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -71,7 +79,7 @@ function NavDropdown({
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
+        className={cn("flex cursor-pointer items-center gap-1", pillLink, active ? pillLinkActive : pillLinkInactive)}
       >
         {label} <ChevronDown className={cn("size-3.5 transition-transform", open && "rotate-180")} />
       </button>
@@ -100,72 +108,93 @@ function NavDropdown({
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
+  const pathname = usePathname();
+
+  const isHome = pathname === "/";
+  const isBoatTours = pathname === "/boat-tours" || tours.some((t) => t.href === pathname);
+  const isAboutUs = pathname === "/about-us";
+  const isSnorkelSites = pathname.startsWith("/flagship-aruba-snorkel-sites");
+  const isBlog = pathname.startsWith("/blog");
+  const isFaq = pathname === "/faq";
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 shadow-sm backdrop-blur-sm">
-      <nav className="container-px mx-auto flex h-20 max-w-6xl items-center justify-between">
-        <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Flagship Aruba home">
-          <FlagshipMark className="size-8 shrink-0 text-primary" seam="var(--color-card)" />
-          <Image src="/logo-dark.webp" alt="Flagship Aruba" width={168} height={67} priority className="h-11 w-auto" />
-        </Link>
+    <header className="sticky top-0 z-50 w-full shadow-sm">
+      <div className="hidden bg-primary text-primary-foreground/80 lg:block">
+        <div className="container-px mx-auto flex max-w-6xl items-center justify-end gap-5 py-1.5 text-xs font-medium">
+          <span className="flex items-center gap-1.5">
+            <MapPin className="size-3.5 text-ocean" /> Palm Beach, Aruba
+          </span>
+          <a href={`tel:${brand.contact.phone.replace(/\s+/g, "")}`} className="flex cursor-pointer items-center gap-1.5 transition-colors hover:text-primary-foreground">
+            <Phone className="size-3.5 text-ocean" /> {brand.contact.phone}
+          </a>
+        </div>
+      </div>
 
-        <div className="hidden items-center gap-1 lg:flex">
-          <Link href="/" className="rounded-md px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-primary">
-            Home
+      <div className="border-b border-border bg-card/95 backdrop-blur-sm">
+        <nav className="container-px mx-auto flex h-20 max-w-6xl items-center justify-between gap-4">
+          <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Flagship Aruba home">
+            <FlagshipMark className="size-8 shrink-0 text-primary" seam="var(--color-card)" />
+            <Image src="/logo-dark.webp" alt="Flagship Aruba" width={168} height={67} priority className="h-11 w-auto" />
           </Link>
 
-          <NavDropdown label="Boat Tours" items={tours} />
-
-          {linksBeforeSites.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
-            >
-              {l.label}
+          <div className="hidden items-center gap-1 rounded-full border border-border bg-secondary/30 p-1.5 lg:flex">
+            <Link href="/" className={cn(pillLink, isHome ? pillLinkActive : pillLinkInactive)}>
+              Home
             </Link>
-          ))}
 
-          <NavDropdown label="Our Snorkel Sites" items={sites} />
+            <NavDropdown label="Boat Tours" items={tours} active={isBoatTours} />
 
-          {linksAfterSites.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
-            >
-              {l.label}
+            {linksBeforeSites.map((l) => (
+              <Link key={l.href} href={l.href} className={cn(pillLink, isAboutUs ? pillLinkActive : pillLinkInactive)}>
+                {l.label}
+              </Link>
+            ))}
+
+            <NavDropdown label="Our Snorkel Sites" items={sites} active={isSnorkelSites} />
+
+            <Link href="/blog" className={cn(pillLink, isBlog ? pillLinkActive : pillLinkInactive)}>
+              Blog
             </Link>
-          ))}
-        </div>
+            <Link href="/faq" className={cn(pillLink, isFaq ? pillLinkActive : pillLinkInactive)}>
+              FAQ
+            </Link>
+          </div>
 
-        <div className="flex items-center gap-1">
-          <a
-            href={`tel:${brand.contact.phone.replace(/\s+/g, "")}`}
-            className="mr-1 hidden cursor-pointer items-center gap-1.5 rounded-md px-2 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-ocean xl:inline-flex"
-          >
-            <Phone className="size-4 text-ocean" /> {brand.contact.phone}
-          </a>
-          <LanguageSwitcher className="hidden lg:block" />
-          <BookButton className="ml-1 hidden items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] sm:inline-flex">
-            Book Now
-          </BookButton>
-          <button
-            type="button"
-            className="grid size-10 cursor-pointer place-items-center rounded-md text-foreground lg:hidden"
-            aria-label="Toggle menu"
-            aria-expanded={open}
-            onClick={() => setOpen((o) => !o)}
-          >
-            {open ? <X className="size-6" /> : <Menu className="size-6" />}
-          </button>
-        </div>
-      </nav>
+          <div className="flex items-center gap-1">
+            <a
+              href={`tel:${brand.contact.phone.replace(/\s+/g, "")}`}
+              className="mr-1 hidden cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-md px-2 py-2 text-sm font-medium text-foreground/75 transition-colors hover:text-ocean xl:inline-flex"
+            >
+              <Phone className="size-4 text-ocean" /> {brand.contact.phone}
+            </a>
+            <LanguageSwitcher className="hidden lg:block" />
+            <BookButton className="ml-1 hidden shrink-0 items-center whitespace-nowrap rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98] sm:inline-flex">
+              Book Now
+            </BookButton>
+            <button
+              type="button"
+              className="grid size-10 cursor-pointer place-items-center rounded-md text-foreground lg:hidden"
+              aria-label="Toggle menu"
+              aria-expanded={open}
+              onClick={() => setOpen((o) => !o)}
+            >
+              {open ? <X className="size-6" /> : <Menu className="size-6" />}
+            </button>
+          </div>
+        </nav>
+      </div>
 
       {open && (
         <div className="border-t border-border bg-card lg:hidden">
           <div className="container-px mx-auto flex max-w-6xl flex-col gap-1 py-4">
-            <Link href="/" onClick={() => setOpen(false)} className="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/90 hover:bg-accent">
+            <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className={cn(
+                "rounded-md px-3 py-2.5 text-sm font-medium",
+                isHome ? "bg-primary text-primary-foreground" : "text-foreground/90 hover:bg-accent"
+              )}
+            >
               Home
             </Link>
             <span className="px-3 py-2.5 text-sm font-medium text-muted-foreground">Boat Tours</span>
@@ -184,7 +213,10 @@ export function Navbar() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/90 hover:bg-accent"
+                className={cn(
+                  "rounded-md px-3 py-2.5 text-sm font-medium",
+                  isAboutUs ? "bg-primary text-primary-foreground" : "text-foreground/90 hover:bg-accent"
+                )}
               >
                 {l.label}
               </Link>
@@ -210,6 +242,9 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
+            <div className="flex items-center gap-1.5 px-3 py-2 text-xs text-muted-foreground">
+              <MapPin className="size-3.5 text-ocean" /> Palm Beach, Aruba
+            </div>
             <a
               href={`tel:${brand.contact.phone.replace(/\s+/g, "")}`}
               className="flex items-center gap-2 rounded-md px-3 py-2.5 text-sm font-medium text-foreground/90 hover:bg-accent"

@@ -15,7 +15,7 @@ export function CTA({ activityId = "" }: { activityId?: string } = {}) {
             alt=""
             fill
             sizes="100vw"
-            quality={72}
+            quality={88}
             className="-z-20 object-cover object-bottom"
           />
           <div className="absolute inset-0 -z-10 bg-sunset-gradient opacity-85" aria-hidden />

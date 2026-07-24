@@ -41,7 +41,7 @@ export function HeroSlideshow({
             fill
             priority
             sizes="100vw"
-            quality={78}
+            quality={88}
             className={cn(
               "object-cover transition-opacity duration-[1500ms] ease-in-out",
               i === index ? "opacity-100" : "opacity-0"
