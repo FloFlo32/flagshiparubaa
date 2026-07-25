@@ -45,3 +45,6 @@ next-env.d.ts
 ideas/*/assets/*.mp4
 ideas/*/assets/*.mov
 
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat

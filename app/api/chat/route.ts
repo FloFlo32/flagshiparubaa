@@ -11,6 +11,13 @@ export const runtime = "nodejs";
 
 const MODEL = process.env.OPENAI_MODEL || "gpt-4o-mini";
 
+const ACTIVITIES = [
+  { name: "Buki Di Pret", id: "5b0a4f57-dcd2-4125-a983-665c0482be3a" },
+  { name: "Morning Snorkel tour", id: "01083159-5861-4408-b78d-22c81e19faa4" },
+  { name: "Afternoon Snorkel tour", id: "47611e71-4496-4915-99ef-816cb4ec6fe2" },
+  { name: "Sunset Cruise", id: "8ff35752-c22a-41f6-b142-4679aa1d1fb4" },
+];
+
 async function loadKnowledge() {
   try {
     return await readFile(join(process.cwd(), "content", "knowledge.md"), "utf8");
@@ -43,6 +50,15 @@ export async function POST(req: Request) {
     `Answer questions using ONLY the knowledge base below. Be concise, warm, and concrete.`,
     `If the answer isn't in the knowledge base, say you're not sure and suggest contacting ${brand.social.email}. Never invent facts, prices, or features.`,
     `Reply in plain text (short paragraphs or bullet points). Do not mention "the knowledge base".`,
+    ``,
+    `=== BOOKING ===`,
+    `Available activities (name = id):`,
+    ...ACTIVITIES.map((a) => `- ${a.name} = ${a.id}`),
+    `End EVERY reply with exactly one marker line, alone, in the form [[BOOK:<id>]].`,
+    `If your reply is about ONE specific activity from the list above, use that activity's id.`,
+    `Otherwise (general question, multiple activities, or no match), use [[BOOK:]] with an empty id.`,
+    `Never invent an id — only use ids from the list above or leave it empty.`,
+    `The marker is parsed by the UI and never shown to the guest, so it must be the literal last line, nothing after it.`,
     ``,
     `=== KNOWLEDGE BASE ===`,
     knowledge,
