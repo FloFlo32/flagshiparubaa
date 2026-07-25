@@ -6,7 +6,19 @@ import { brand } from "@/brand.config";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-type Msg = { role: "user" | "assistant"; content: string };
+type Msg = { role: "user" | "assistant"; content: string; bookActivityId?: string };
+
+const BOOK_MARKER_DONE = /\n?\[\[BOOK:([^\]]*)\]\]\s*$/;
+const BOOK_MARKER_PARTIAL = /\n?\[\[BOOK:?[^\]]*\]?\s*$/;
+
+function stripBookMarker(text: string, done: boolean) {
+  if (done) {
+    const m = text.match(BOOK_MARKER_DONE);
+    if (m) return { content: text.slice(0, m.index).trimEnd(), bookActivityId: m[1] };
+    return { content: text, bookActivityId: undefined };
+  }
+  return { content: text.replace(BOOK_MARKER_PARTIAL, ""), bookActivityId: undefined };
+}
 
 /**
  * AI FAQ widget — floating assistant grounded in content/knowledge.md.
@@ -58,8 +70,11 @@ export function FaqWidget() {
         const { done, value } = await reader.read();
         if (done) break;
         acc += decoder.decode(value, { stream: true });
-        setMessages((m) => updateLast(m, acc));
+        const { content } = stripBookMarker(acc, false);
+        setMessages((m) => updateLast(m, content));
       }
+      const { content, bookActivityId } = stripBookMarker(acc, true);
+      setMessages((m) => updateLast(m, content, bookActivityId));
     } catch {
       setMessages((m) => updateLast(m, "Network error — please try again."));
     } finally {
@@ -117,7 +132,7 @@ export function FaqWidget() {
           {messages.map((m, i) => (
             <div
               key={i}
-              className={cn("flex", m.role === "user" ? "justify-end" : "justify-start")}
+              className={cn("flex flex-col gap-1.5", m.role === "user" ? "items-end" : "items-start")}
             >
               <div
                 className={cn(
@@ -129,6 +144,15 @@ export function FaqWidget() {
               >
                 {m.content || (busy && i === messages.length - 1 ? <Dots /> : null)}
               </div>
+              {m.role === "assistant" && m.bookActivityId !== undefined && (
+                <button
+                  type="button"
+                  data-yetti-activity={m.bookActivityId}
+                  className="rounded-full bg-ocean px-3.5 py-1.5 text-xs font-semibold text-ocean-foreground transition-transform hover:scale-105 active:scale-95"
+                >
+                  Book Now
+                </button>
+              )}
             </div>
           ))}
         </div>
@@ -150,9 +174,9 @@ export function FaqWidget() {
   );
 }
 
-function updateLast(msgs: Msg[], content: string): Msg[] {
+function updateLast(msgs: Msg[], content: string, bookActivityId?: string): Msg[] {
   const copy = msgs.slice();
-  copy[copy.length - 1] = { role: "assistant", content };
+  copy[copy.length - 1] = { role: "assistant", content, bookActivityId };
   return copy;
 }
 
