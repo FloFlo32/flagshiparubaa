@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Star } from "lucide-react";
 import { RevealGroup, RevealItem } from "@/components/magic/reveal";
 import { BookButton } from "@/components/ui/book-button";
+import { snorkelSites } from "@/lib/snorkel-sites";
 
 export const tours = [
   {
@@ -69,26 +70,59 @@ export const tours = [
   },
 ] as const;
 
+type AdventureCard = {
+  slug: string;
+  href: string;
+  title: string;
+  description: string;
+  image: { src: string; alt: string };
+  category: string;
+  price?: string;
+  activityId?: string;
+};
+
+const tourCards: AdventureCard[] = tours.map((t) => ({
+  slug: t.slug,
+  href: `/${t.slug}`,
+  title: t.title,
+  description: t.description,
+  image: t.image,
+  category: "Boat Tour",
+  price: t.price,
+  activityId: t.activityId,
+}));
+
+const snorkelCards: AdventureCard[] = snorkelSites.map((s) => ({
+  slug: s.slug,
+  href: `/flagship-aruba-snorkel-sites/${s.slug}`,
+  title: s.title,
+  description: s.tagline,
+  image: s.heroImage,
+  category: "Snorkel Site",
+}));
+
+const adventures: AdventureCard[] = [...tourCards, ...snorkelCards];
+
 export function ToursGrid({ heading = true }: { heading?: boolean }) {
   return (
     <section className="container-px mx-auto max-w-6xl py-20 sm:py-24">
       {heading && (
         <RevealItem className="mx-auto max-w-xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Boat Tours</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Adventure</span>
           <h2 className="mt-3 text-balance text-4xl font-bold sm:text-5xl">Choose Your Amazing Tour</h2>
         </RevealItem>
       )}
       <RevealGroup className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {tours.map((t) => (
+        {adventures.map((a) => (
           <RevealItem
-            key={t.slug}
+            key={a.slug}
             className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5"
           >
-            <Link href={`/${t.slug}`} className="group block cursor-pointer overflow-hidden bg-muted">
+            <Link href={a.href} className="group block cursor-pointer overflow-hidden bg-muted">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={t.image.src}
-                alt={t.image.alt}
+                src={a.image.src}
+                alt={a.image.alt}
                 loading="lazy"
                 decoding="async"
                 className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none"
@@ -96,25 +130,40 @@ export function ToursGrid({ heading = true }: { heading?: boolean }) {
             </Link>
             <div className="flex flex-1 flex-col gap-2 p-5">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-medium uppercase tracking-[0.18em] text-primary">Boat Tour</span>
-                <span className="text-xs font-semibold text-muted-foreground">{t.duration}</span>
+                <span className="inline-flex items-center rounded-full bg-ocean/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-ocean">
+                  {a.category}
+                </span>
+                <span className="flex items-center gap-1 text-sm font-semibold text-foreground">
+                  <Star className="size-3.5 fill-ocean text-ocean" /> 5.0
+                </span>
               </div>
-              <Link href={`/${t.slug}`} className="cursor-pointer">
+              <Link href={a.href} className="cursor-pointer">
                 <h3 className="flex items-start justify-between gap-2 text-lg font-semibold transition-colors hover:text-primary">
-                  {t.title}
+                  {a.title}
                   <ArrowUpRight className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
                 </h3>
               </Link>
-              <p className="flex-1 text-pretty text-sm text-muted-foreground">{t.description}</p>
-              <p className="text-lg font-bold text-ocean">
-                {t.price} <span className="text-sm font-medium text-muted-foreground">per guest</span>
-              </p>
-              <BookButton
-                activityId={t.activityId}
-                className="mt-3 inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
-              >
-                Book Now
-              </BookButton>
+              <p className="flex-1 text-pretty text-sm text-muted-foreground">{a.description}</p>
+              {a.price ? (
+                <>
+                  <p className="text-lg font-bold text-ocean">
+                    {a.price} <span className="text-sm font-medium text-muted-foreground">per guest</span>
+                  </p>
+                  <BookButton
+                    activityId={a.activityId ?? ""}
+                    className="mt-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-md active:scale-[0.98]"
+                  >
+                    Book Now
+                  </BookButton>
+                </>
+              ) : (
+                <Link
+                  href={a.href}
+                  className="mt-1 inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-full border border-border px-4 py-2.5 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:bg-accent active:scale-[0.98]"
+                >
+                  Explore Site <ArrowUpRight className="size-4" />
+                </Link>
+              )}
             </div>
           </RevealItem>
         ))}

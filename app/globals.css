@@ -151,6 +151,7 @@
   --animate-marquee-vertical: marquee-vertical var(--marquee-duration, 40s) linear infinite;
   --animate-shimmer: shimmer 2.5s linear infinite;
   --animate-beam: beam 3s ease-in-out infinite;
+  --animate-sail-bob: sail-bob 7s ease-in-out infinite;
 
   @keyframes aurora {
     0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
@@ -172,6 +173,24 @@
   @keyframes beam {
     0%, 100% { opacity: 0.4; }
     50% { opacity: 1; }
+  }
+  @keyframes sail-bob {
+    0%, 100% { transform: translate(0, 0) rotate(-3deg); }
+    50% { transform: translate(0, -14px) rotate(3deg); }
+  }
+}
+
+/* Decorative CSS-only animations (aurora blobs, marquees, the sail-bob boat
+   icons) have no JS-side reduced-motion check like the Reveal components do,
+   so freeze them here for prefers-reduced-motion instead. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-aurora,
+  .animate-marquee,
+  .animate-marquee-vertical,
+  .animate-shimmer,
+  .animate-beam,
+  .animate-sail-bob {
+    animation: none;
   }
 }
 

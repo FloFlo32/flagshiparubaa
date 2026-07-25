@@ -8,7 +8,6 @@ import { Footer } from "@/components/sections/footer";
 import { CTA } from "@/components/sections/cta";
 import { Accordion } from "@/components/sections/accordion";
 import { BlogSidebar } from "@/components/sections/blog-sidebar";
-import { GridPattern } from "@/components/magic/grid-pattern";
 import { Reveal } from "@/components/magic/reveal";
 import { blogPosts, getPostBySlug } from "@/lib/blog-posts";
 
@@ -34,8 +33,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <>
       <Navbar />
       <main className="flex-1">
-        <section className="relative overflow-hidden bg-primary py-14 sm:py-16">
-          <GridPattern />
+        <section className="relative isolate overflow-hidden bg-primary py-14 sm:py-16">
           <div className="container-px relative mx-auto max-w-3xl">
             <Reveal>
               <Link

@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/magic/reveal";
 import { BookButton } from "@/components/ui/book-button";
 import { AuroraBackground } from "@/components/magic/aurora-background";
-import { GridPattern } from "@/components/magic/grid-pattern";
+import { FloatingBoats } from "@/components/magic/floating-boats";
 import { cn } from "@/lib/utils";
 
 type Cta = { label: string; href: string } | { label?: string; activityId?: string };
@@ -42,7 +42,7 @@ const ctaClass =
  *
  * Without `image` (pages with no dedicated real photo left to assign, to keep
  * every image on the site unique): a centered navy hero with a soft aurora
- * glow + grid pattern instead of a photo.
+ * glow instead of a photo.
  *
  * cta: pass `href` for an internal link, or `activityId` for a booking action
  * (defaults to the general Book Now when cta is omitted, empty activity id).
@@ -64,9 +64,9 @@ export function PageHero({
 }) {
   if (!image) {
     return (
-      <section className="relative overflow-hidden bg-primary">
-        <AuroraBackground />
-        <GridPattern />
+      <section className="relative isolate overflow-hidden bg-primary">
+        <AuroraBackground className="opacity-30" />
+        <FloatingBoats tone="text-primary-foreground" />
         <div className="container-px relative mx-auto max-w-3xl py-20 text-center sm:py-24">
           <Reveal>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">{eyebrow}</span>
@@ -82,8 +82,7 @@ export function PageHero({
   }
 
   return (
-    <section className="relative overflow-hidden bg-primary">
-      <GridPattern />
+    <section className="relative isolate overflow-hidden bg-primary">
       <div className="container-px relative mx-auto grid max-w-6xl items-center gap-10 py-16 sm:py-20 lg:grid-cols-2 lg:gap-16">
         <Reveal>
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/80">{eyebrow}</span>
